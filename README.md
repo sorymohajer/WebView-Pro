@@ -3,7 +3,7 @@
 <div align="center">
   <img src="https://github.com/sorymohajer/WebView-Pro/blob/main/logoo.png?raw=true" alt="WebView Pro Logo" width="120" height="120">
   
-  <h3>تطبيق الويب الاحترافي الأكثر تطوراً</h3>
+  <h3>The Most Advanced Professional Web Browser App</h3>
   
   [![GitHub stars](https://img.shields.io/github/stars/sorymohajer/WebView-Pro?style=social)](https://github.com/sorymohajer/WebView-Pro/stargazers)
   [![GitHub forks](https://img.shields.io/github/forks/sorymohajer/WebView-Pro?style=social)](https://github.com/sorymohajer/WebView-Pro/network)
@@ -11,153 +11,152 @@
   [![License](https://img.shields.io/github/license/sorymohajer/WebView-Pro)](LICENSE)
 </div>
 
-## 📱 حول التطبيق
+## 📱 About the App
 
-WebView Pro هو تطبيق متصفح ويب متقدم مصمم خصيصاً لنظام الأندرويد، يوفر تجربة تصفح استثنائية تجمع بين الأداء العالي والأمان المتقدم والسهولة في الاستخدام.
+WebView Pro is an advanced web browser application designed specifically for Android, providing an exceptional browsing experience that combines high performance, advanced security, and ease of use.
 
-## ✨ المميزات الرئيسية
+## ✨ Key Features
 
-- 🚀 **أداء فائق السرعة**: محرك تصفح محسن للحصول على أقصى سرعة وكفاءة
-- 🔒 **أمان متقدم**: حماية شاملة مع تشفير البيانات وحماية الخصوصية
-- ⭐ **المفضلة الذكية**: نظام مفضلة متطور مع إدارة سهلة ومرنة
-- 💾 **التخزين المؤقت**: إمكانية حفظ الصفحات للعرض بدون إنترنت
-- 📤 **مشاركة سهلة**: شارك المحتوى بسهولة مع الأصدقاء والعائلة
-- ⚙️ **إعدادات متقدمة**: تحكم كامل في إعدادات التطبيق حسب احتياجاتك
+- 🚀 **Ultra-Fast Performance**: Optimized browsing engine for maximum speed and efficiency
+- 🔒 **Advanced Security**: Comprehensive protection with data encryption and privacy protection
+- ⭐ **Smart Favorites**: Advanced favorites system with easy and flexible management
+- 💾 **Offline Storage**: Save pages for offline viewing without internet connection
+- 📤 **Easy Sharing**: Share content easily with friends and family
+- ⚙️ **Advanced Settings**: Full control over app settings according to your needs
 
-## 🛠️ التقنيات المستخدمة
+## 🛠️ Technologies Used
 
-- **Kotlin**: لغة البرمجة الأساسية
-- **Jetpack Compose**: لبناء واجهات المستخدم الحديثة
-- **Room Database**: لقاعدة البيانات المحلية
-- **Navigation Component**: للتنقل بين الشاشات
-- **Material Design 3**: لتصميم عصري وجميل
-- **Coroutines**: للبرمجة غير المتزامنة
-- **ViewModel & LiveData**: لإدارة البيانات
+- **Kotlin**: Primary programming language
+- **Jetpack Compose**: For building modern user interfaces
+- **Room Database**: For local database
+- **Navigation Component**: For navigation between screens
+- **Material Design 3**: For modern and beautiful design
+- **Coroutines**: For asynchronous programming
+- **ViewModel & LiveData**: For data management
 
-## 📦 التثبيت
+## 📦 Installation
 
-### متطلبات النظام
-- Android 7.0 (API level 24) أو أحدث
-- 50 MB مساحة تخزين فارغة
-- اتصال بالإنترنت (للتصفح)
+### System Requirements
+- Android 7.0 (API level 24) or higher
+- 50 MB free storage space
+- Internet connection (for browsing)
 
-### طرق التحميل
+### Download Methods
 
-1. **من Google Play Store** (قريباً)
+1. **From CodeCanyon** (Professional License)
    ```
-   قريباً على متجر Google Play
+   Available for purchase on CodeCanyon
    ```
 
-2. **تحميل مباشر APK**
-   - قم بتحميل أحدث إصدار من [صفحة الإصدارات](https://github.com/sorymohajer/WebView-Pro/releases)
-   - فعّل "مصادر غير معروفة" في إعدادات الأمان
-   - قم بتثبيت الملف المحمل
+2. **Live Preview**
+   - Check out the live preview before purchasing
+   - See all features in action
 
-## 🚀 البدء السريع
+## 🚀 Quick Start
 
-1. **افتح التطبيق** بعد التثبيت
-2. **اقبل الأذونات** المطلوبة للتشغيل الصحيح
-3. **ابدأ التصفح** عبر إدخال الرابط في شريط العنوان
-4. **أضف المفضلة** بالضغط على أيقونة النجمة
-5. **احفظ الصفحات** للعرض بدون إنترنت
+1. **Open the app** after installation
+2. **Accept permissions** required for proper operation
+3. **Start browsing** by entering URL in the address bar
+4. **Add favorites** by tapping the star icon
+5. **Save pages** for offline viewing
 
-## 📸 لقطات الشاشة
+## 📸 Screenshots
 
 <div align="center">
-  <img src="https://via.placeholder.com/300x600/4CAF50/white?text=الشاشة+الرئيسية" alt="الشاشة الرئيسية" width="200">
-  <img src="https://via.placeholder.com/300x600/2196F3/white?text=المفضلة" alt="صفحة المفضلة" width="200">
-  <img src="https://via.placeholder.com/300x600/FF9800/white?text=الإعدادات" alt="صفحة الإعدادات" width="200">
+  <img src="https://via.placeholder.com/300x600/4CAF50/white?text=Home+Screen" alt="Home Screen" width="200">
+  <img src="https://via.placeholder.com/300x600/2196F3/white?text=Favorites" alt="Favorites Page" width="200">
+  <img src="https://via.placeholder.com/300x600/FF9800/white?text=Settings" alt="Settings Page" width="200">
 </div>
 
-## 🏗️ البناء من المصدر
+## 🏗️ Building from Source
 
-### متطلبات التطوير
-- Android Studio Arctic Fox أو أحدث
-- JDK 11 أو أحدث
+### Development Requirements
+- Android Studio Arctic Fox or newer
+- JDK 11 or newer
 - Android SDK 34
 - Gradle 8.0+
 
-### خطوات البناء
+### Build Steps
 
-1. **استنساخ المشروع**
+1. **Clone the project**
    ```bash
    git clone https://github.com/sorymohajer/WebView-Pro.git
    cd WebView-Pro
    ```
 
-2. **فتح المشروع في Android Studio**
+2. **Open project in Android Studio**
    ```bash
-   # افتح Android Studio واختر "Open an existing project"
-   # اختر مجلد المشروع المستنسخ
+   # Open Android Studio and choose "Open an existing project"
+   # Select the cloned project folder
    ```
 
-3. **بناء التطبيق**
+3. **Build the app**
    ```bash
    ./gradlew assembleDebug
-   # أو للإصدار النهائي
+   # or for release build
    ./gradlew assembleRelease
    ```
 
-## 🤝 المساهمة
+## 🤝 Contributing
 
-نرحب بمساهماتكم! إليك كيفية المساهمة:
+We welcome your contributions! Here's how to contribute:
 
-1. **Fork المشروع**
-2. **أنشئ فرع للميزة الجديدة** (`git checkout -b feature/AmazingFeature`)
-3. **اعمل Commit للتغييرات** (`git commit -m 'Add some AmazingFeature'`)
-4. **ادفع للفرع** (`git push origin feature/AmazingFeature`)
-5. **افتح Pull Request**
+1. **Fork the project**
+2. **Create a feature branch** (`git checkout -b feature/AmazingFeature`)
+3. **Commit your changes** (`git commit -m 'Add some AmazingFeature'`)
+4. **Push to the branch** (`git push origin feature/AmazingFeature`)
+5. **Open a Pull Request**
 
-### إرشادات المساهمة
-- اتبع معايير الكود الموجودة
-- اكتب تعليقات واضحة للكود
-- اختبر التغييرات قبل الإرسال
-- حدّث الوثائق عند الحاجة
+### Contribution Guidelines
+- Follow existing code standards
+- Write clear code comments
+- Test changes before submitting
+- Update documentation when needed
 
-## 🐛 الإبلاغ عن الأخطاء
+## 🐛 Bug Reports
 
-إذا وجدت خطأ، يرجى:
+If you find a bug, please:
 
-1. **تحقق من الأخطاء الموجودة** في [صفحة Issues](https://github.com/sorymohajer/WebView-Pro/issues)
-2. **أنشئ Issue جديد** إذا لم يكن موجوداً
-3. **قدم معلومات مفصلة**:
-   - وصف الخطأ
-   - خطوات إعادة الإنتاج
-   - لقطات شاشة (إن أمكن)
-   - معلومات الجهاز ونظام التشغيل
+1. **Check existing bugs** in [Issues page](https://github.com/sorymohajer/WebView-Pro/issues)
+2. **Create a new Issue** if it doesn't exist
+3. **Provide detailed information**:
+   - Bug description
+   - Steps to reproduce
+   - Screenshots (if possible)
+   - Device and OS information
 
-## 📋 خارطة الطريق
+## 📋 Roadmap
 
-### الإصدار القادم (v2.0)
-- [ ] دعم الثيمات المتعددة
-- [ ] وضع القراءة المتقدم
-- [ ] مدير التحميلات المدمج
-- [ ] دعم الإضافات
-- [ ] مزامنة البيانات عبر الأجهزة
+### Next Release (v2.0)
+- [ ] Multiple themes support
+- [ ] Advanced reading mode
+- [ ] Built-in download manager
+- [ ] Extensions support
+- [ ] Cross-device data sync
 
-### المستقبل البعيد
-- [ ] دعم أجهزة التابلت
-- [ ] إصدار iOS
-- [ ] تطبيق سطح المكتب
-- [ ] API للمطورين
+### Future Plans
+- [ ] Tablet support
+- [ ] iOS version
+- [ ] Desktop application
+- [ ] Developer API
 
-## 📄 الترخيص
+## 📄 License
 
-هذا المشروع مرخص تحت رخصة MIT - راجع ملف [LICENSE](LICENSE) للتفاصيل.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 شكر وتقدير
+## 🙏 Acknowledgments
 
-- شكر خاص لجميع المساهمين في المشروع
-- شكر لمجتمع Android المفتوح المصدر
-- شكر لمستخدمي التطبيق على ملاحظاتهم القيمة
+- Special thanks to all project contributors
+- Thanks to the open source Android community
+- Thanks to app users for their valuable feedback
 
-## 📞 التواصل
+## 📞 Contact
 
-- **الموقع الرسمي**: [webviewpro.com](https://sorymohajer.github.io/WebView-Pro/)
-- **البريد الإلكتروني**: support@webviewpro.com
-- **GitHub Issues**: [إنشاء Issue جديد](https://github.com/sorymohajer/WebView-Pro/issues/new)
+- **Official Website**: [webviewpro.com](https://sorymohajer.github.io/WebView-Pro/)
+- **Email**: support@webviewpro.com
+- **GitHub Issues**: [Create New Issue](https://github.com/sorymohajer/WebView-Pro/issues/new)
 
-## 📊 الإحصائيات
+## 📊 Statistics
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=sorymohajer&repo=WebView-Pro&show_icons=true&theme=radical" alt="GitHub Stats">
@@ -166,6 +165,6 @@ WebView Pro هو تطبيق متصفح ويب متقدم مصمم خصيصاً �
 ---
 
 <div align="center">
-  <p>صُنع بـ ❤️ للمجتمع العربي</p>
-  <p>© 2024 WebView Pro. جميع الحقوق محفوظة.</p>
+  <p>Made with ❤️ for the global community</p>
+  <p>© 2024 WebView Pro. All rights reserved.</p>
 </div>

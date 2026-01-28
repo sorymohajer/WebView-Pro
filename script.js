@@ -154,3 +154,125 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+// Slideshow functionality
+let slideIndex = 1;
+let slideInterval;
+
+// Initialize slideshow when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide(slideIndex);
+    startAutoSlide();
+});
+
+function changeSlide(n) {
+    showSlide(slideIndex += n);
+    resetAutoSlide();
+}
+
+function currentSlide(n) {
+    showSlide(slideIndex = n);
+    resetAutoSlide();
+}
+
+function showSlide(n) {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
+    
+    // Hide all slides
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    
+    // Remove active class from all dots
+    dots.forEach(dot => {
+        dot.classList.remove('active');
+    });
+    
+    // Show current slide and activate corresponding dot
+    if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].classList.add('active');
+    }
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].classList.add('active');
+    }
+}
+
+function startAutoSlide() {
+    slideInterval = setInterval(() => {
+        slideIndex++;
+        showSlide(slideIndex);
+    }, 4000); // Change slide every 4 seconds
+}
+
+function resetAutoSlide() {
+    clearInterval(slideInterval);
+    startAutoSlide();
+}
+
+// Pause auto-slide when hovering over slideshow
+document.addEventListener('DOMContentLoaded', () => {
+    const slideshow = document.querySelector('.slideshow-container');
+    if (slideshow) {
+        slideshow.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        slideshow.addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+    }
+});
+
+// Touch/swipe support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const slideshow = document.querySelector('.slideshow-container');
+    if (slideshow) {
+        slideshow.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        slideshow.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+    }
+});
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+            // Swipe left - next slide
+            changeSlide(1);
+        } else {
+            // Swipe right - previous slide
+            changeSlide(-1);
+        }
+    }
+}
+
+// CodeCanyon Link Configuration
+// TO UPDATE CODECANYON LINK: Change the href attribute in the following elements:
+// 1. In index.html: element with id="codecanyon-link"
+// 2. In about.html: element with id="codecanyon-about-link"
+// Example: document.getElementById('codecanyon-link').href = 'https://codecanyon.net/item/your-item-url';
+
+document.addEventListener('DOMContentLoaded', () => {
+    // You can set the CodeCanyon link here programmatically if needed
+    const codecanyonLinks = document.querySelectorAll('#codecanyon-link, #codecanyon-about-link');
+    const codecanyonUrl = '#'; // REPLACE THIS WITH YOUR ACTUAL CODECANYON URL
+    
+    codecanyonLinks.forEach(link => {
+        if (link) {
+            link.href = codecanyonUrl;
+        }
+    });
+});
