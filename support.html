@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدعم الفني - WebView Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .support-content {
+            max-width: 1000px;
+            margin: 120px auto 50px;
+            padding: 0 20px;
+        }
+        .support-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .support-header h1 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .support-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .support-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+        .faq-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+        .faq-question:hover {
+            color: #667eea;
+        }
+        .faq-answer {
+            margin-top: 1rem;
+            color: #666;
+            line-height: 1.6;
+            display: none;
+        }
+        .faq-answer.active {
+            display: block;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: 'Cairo', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .submit-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="support-content">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-right"></i>
+            العودة للرئيسية
+        </a>
+        
+        <div class="support-header">
+            <h1>الدعم الفني</h1>
+            <p>نحن هنا لمساعدتك! اختر الطريقة الأنسب للحصول على المساعدة</p>
+        </div>
+        
+        <div class="support-grid">
+            <div class="support-card">
+                <div class="support-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>البريد الإلكتروني</h3>
+                <p>تواصل معنا عبر البريد الإلكتروني وسنرد عليك خلال 24 ساعة</p>
+                <a href="mailto:support@webviewpro.com" class="btn btn-primary" style="margin-top: 1rem;">
+                    إرسال رسالة
+                </a>
+            </div>
+            
+            <div class="support-card">
+                <div class="support-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+                <h3>GitHub</h3>
+                <p>قم بإنشاء issue على GitHub للإبلاغ عن الأخطاء أو طلب ميزات جديدة</p>
+                <a href="https://github.com/sorymohajer/WebView-Pro/issues" class="btn btn-primary" style="margin-top: 1rem;">
+                    فتح Issue
+                </a>
+            </div>
+            
+            <div class="support-card">
+                <div class="support-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>دليل المستخدم</h3>
+                <p>اطلع على دليل المستخدم الشامل لتعلم كيفية استخدام جميع ميزات التطبيق</p>
+                <a href="#faq" class="btn btn-primary" style="margin-top: 1rem;">
+                    عرض الدليل
+                </a>
+            </div>
+        </div>
+        
+        <div class="faq-section" id="faq">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #333;">الأسئلة الشائعة</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>كيف يمكنني إضافة موقع إلى المفضلة؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>لإضافة موقع إلى المفضلة، اتبع الخطوات التالية:</p>
+                    <ol>
+                        <li>انتقل إلى الموقع الذي تريد إضافته</li>
+                        <li>اضغط على أيقونة النجمة في شريط الأدوات العلوي</li>
+                        <li>سيتم إضافة الموقع تلقائياً إلى قائمة المفضلة</li>
+                        <li>يمكنك الوصول إلى المفضلة من القائمة السفلية</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>كيف يمكنني حفظ صفحة للعرض بدون إنترنت؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>لحفظ صفحة للعرض بدون إنترنت:</p>
+                    <ol>
+                        <li>افتح الصفحة التي تريد حفظها</li>
+                        <li>اضغط على أيقونة الحفظ في شريط الأدوات</li>
+                        <li>انتظر حتى يكتمل تحميل الصفحة</li>
+                        <li>ستصبح الصفحة متاحة للعرض بدون إنترنت</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>كيف يمكنني تغيير إعدادات التطبيق؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>للوصول إلى إعدادات التطبيق:</p>
+                    <ol>
+                        <li>اضغط على تبويب "الإعدادات" في القائمة السفلية</li>
+                        <li>ستجد جميع الخيارات المتاحة للتخصيص</li>
+                        <li>يمكنك تغيير الثيم، إعدادات الأمان، وغيرها</li>
+                        <li>التغييرات تُحفظ تلقائياً</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>التطبيق لا يعمل بشكل صحيح، ماذا أفعل؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>إذا واجهت مشاكل في التطبيق، جرب الحلول التالية:</p>
+                    <ol>
+                        <li>أعد تشغيل التطبيق</li>
+                        <li>تأكد من أن لديك أحدث إصدار من التطبيق</li>
+                        <li>امسح ذاكرة التخزين المؤقت للتطبيق</li>
+                        <li>أعد تشغيل الجهاز</li>
+                        <li>إذا استمرت المشكلة، تواصل معنا عبر البريد الإلكتروني</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>هل التطبيق آمن لاستخدام البيانات الحساسة؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>نعم، التطبيق آمن تماماً:</p>
+                    <ul>
+                        <li>جميع البيانات مشفرة باستخدام أحدث تقنيات التشفير</li>
+                        <li>لا نجمع أو نشارك بياناتك الشخصية</li>
+                        <li>التطبيق يدعم HTTPS لجميع الاتصالات</li>
+                        <li>يمكنك مراجعة سياسة الخصوصية للمزيد من التفاصيل</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>كيف يمكنني مشاركة صفحة مع الآخرين؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>لمشاركة صفحة:</p>
+                    <ol>
+                        <li>افتح الصفحة التي تريد مشاركتها</li>
+                        <li>اضغط على أيقونة المشاركة في شريط الأدوات</li>
+                        <li>اختر التطبيق الذي تريد المشاركة من خلاله</li>
+                        <li>أكمل عملية المشاركة</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #333;">تواصل معنا</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">الاسم</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">الموضوع</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">الرسالة</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    إرسال الرسالة
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // FAQ Toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                answer.classList.toggle('active');
+                icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+            });
+        });
+        
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('شكراً لك! تم إرسال رسالتك بنجاح. سنتواصل معك قريباً.');
+        });
+    </script>
+</body>
+</html>
