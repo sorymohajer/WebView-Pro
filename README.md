@@ -63,18 +63,18 @@ WebView Pro is an advanced web browser application designed specifically for And
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="https://via.placeholder.com/300x600/4CAF50/white?text=Home+Screen" alt="Home Screen" width="200">
-  <img src="https://via.placeholder.com/300x600/2196F3/white?text=Favorites" alt="Favorites Page" width="200">
-  <img src="https://via.placeholder.com/300x600/FF9800/white?text=Settings" alt="Settings Page" width="200">
+  <img src="https://i.postimg.cc/Ss3NpxgD/Sections-(2).jpg" alt="Sections" width="200">
+  <img src="https://i.postimg.cc/1t25Z3vB/Favorites-(2).jpg" alt="Favorites Page" width="200">
+  <img src="https://i.postimg.cc/Kzwvy80n/Settings-(1).jpg" alt="Settings Page" width="200">
 </div>
 
 ## 🏗️ Building from Source
 
 ### Development Requirements
 - Android Studio Arctic Fox or newer
-- JDK 11 or newer
-- Android SDK 34
-- Gradle 8.0+
+- JDK 17 or newer
+- Android SDK 36
+- Gradle 9.0+
 
 ### Build Steps
 
@@ -153,8 +153,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Official Website**: [webviewpro.com](https://sorymohajer.github.io/WebView-Pro/)
-- **Email**: support@webviewpro.com
 - **GitHub Issues**: [Create New Issue](https://github.com/sorymohajer/WebView-Pro/issues/new)
+- **Professional License**: [Buy on CodeCanyon](https://codecanyon.net/user/sorymohajer/portfolio)
 
 ## 📊 Statistics
 
@@ -166,5 +166,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
   <p>Made with ❤️ for the global community</p>
-  <p>© 2024 WebView Pro. All rights reserved.</p>
+  <p>© 2026 WebView Pro. All rights reserved.</p>
+
 </div>
