@@ -1,7 +1,7 @@
-# WebView Pro 🚀
+# WebControl X 🚀
 
 <div align="center">
-  <img src="https://github.com/sorymohajer/WebView-Pro/blob/main/logoo.png?raw=true" alt="WebView Pro Logo" width="120" height="120">
+  <img src="https://github.com/sorymohajer/WebView-Pro/blob/main/logoo.png?raw=true" alt="WebControl X Logo" width="120" height="120">
   
   <h3>The Most Advanced Professional Web Browser App</h3>
   
@@ -13,7 +13,7 @@
 
 ## 📱 About the App
 
-WebView Pro is an advanced web browser application designed specifically for Android, providing an exceptional browsing experience that combines high performance, advanced security, and ease of use.
+WebControl X is an advanced web browser application designed specifically for Android, providing an exceptional browsing experience that combines high performance, advanced security, and ease of use.
 
 ## ✨ Key Features
 
@@ -166,6 +166,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
   <p>Made with ❤️ for the global community</p>
-  <p>© 2026 WebView Pro. All rights reserved.</p>
+  <p>© 2026 WebControl X. All rights reserved.</p>
 
 </div>
+
