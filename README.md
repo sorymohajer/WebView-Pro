@@ -1,7 +1,7 @@
 # WebControl X 🚀
 
 <div align="center">
-  <img src="https://github.com/sorymohajer/WebView-Pro/blob/main/logoo.png?raw=true" alt="WebControl X Logo" width="120" height="120">
+  <img src="https://i.postimg.cc/QCDpfX70/ggggg.png" alt="WebControl X Logo" width="120" height="120">
   
   <h3>The Most Advanced Professional Web Browser App</h3>
   
@@ -169,4 +169,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   <p>© 2026 WebControl X. All rights reserved.</p>
 
 </div>
+
 
