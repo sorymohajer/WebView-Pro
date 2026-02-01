@@ -1,9 +1,16 @@
-/* styles.css — Modernized 2026 version */
+/* styles.css — Modernized 2026 version with fix for horizontal shift */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden !important;  /* ← الحل الأساسي: يمنع أي حركة أفقية */
+    -webkit-overflow-scrolling: touch;  /* لتحسين السكرول على الموبايل */
+    width: 100%;
+    height: 100%;
 }
 
 body {
@@ -17,6 +24,7 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
+    overflow-x: hidden;  /* إضافة إضافية للأمان */
 }
 
 /* Header */
@@ -27,6 +35,7 @@ body {
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    width: 100%;
 }
 
 .navbar {
@@ -70,6 +79,7 @@ body {
     color: white;
     padding: 10rem 0 6rem;
     position: relative;
+    overflow-x: hidden;  /* ← إضافة لمنع shift في الـ hero */
 }
 
 .hero-container {
@@ -77,6 +87,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: center;
+    max-width: 100%;  /* ← يمنع تجاوز الشاشة */
 }
 
 .hero-title {
@@ -146,6 +157,7 @@ body {
     box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
     position: relative;
     animation: float 6s ease-in-out infinite;
+    overflow: hidden;  /* ← لمنع أي overflow داخل الموكاب */
 }
 
 @keyframes float {
@@ -157,6 +169,7 @@ body {
 .features, .why-section {
     padding: 7rem 0;
     background: white;
+    overflow-x: hidden;  /* ← إضافة للأمان */
 }
 
 .section-title {
@@ -183,6 +196,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
+    max-width: 100%;  /* ← يمنع تجاوز */
 }
 
 .feature-card, .why-item {
@@ -192,6 +206,7 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     transition: all 0.3s ease;
     border: 1px solid #f1f5f9;
+    overflow: hidden;  /* ← لمنع shift داخل الكارد */
 }
 
 .feature-card:hover, .why-item:hover {
@@ -218,6 +233,7 @@ body {
     color: white;
     padding: 8rem 0;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .download-buttons {
