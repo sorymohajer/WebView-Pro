@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebControl X – Remote Configurable Android WebView Platform</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Consider using Google Fonts instead of @font-face mess for production -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,9 +23,9 @@
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#why">Why Choose</a></li>
+                    <li><a href="#remote">Remote Config</a></li>
                     <li><a href="#screenshots">Screenshots</a></li>
-                    <li><a href="#download">Get It Now</a></li>
+                    <li><a href="#download">Get It</a></li>
                 </ul>
 
                 <div class="hamburger">
@@ -38,25 +39,67 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Remote Control. Lifetime Flexibility.</h1>
-                <p class="hero-subtitle">Launch your Android WebView app once — update everything remotely without new releases.</p>
+                <h1 class="hero-title">Remote Configurable<br>Android WebView Platform</h1>
+                <p class="hero-subtitle">Launch once. Update forever. Full control after Google Play publication.</p>
+                
                 <p class="hero-description">
-                    WebControl X is the modern, secure, Kotlin + Jetpack Compose WebView platform built for developers and agencies who demand post-launch control. Change URLs, UI text, navigation, ads, features, and behavior via secure JSON — no resubmissions needed.
+                    WebControl X lets developers, agencies and businesses manage UI, features, navigation, ads and behavior remotely via secure JSON — no new APK releases needed.
                 </p>
 
                 <div class="hero-buttons">
                     <a href="#download" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> Get Full Source Now
+                        <i class="fas fa-shopping-cart"></i> Buy on CodeCanyon
                     </a>
-                    <a href="https://codecanyon.net/user/sorymohajer/portfolio" target="_blank" class="btn btn-secondary">
-                        View on CodeCanyon
+                    <a href="https://www.mediafire.com/file/8z6g490pa9qk3zu/WebView+Pro.apk/file" 
+                       target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Free Trial APK
                     </a>
+                </div>
+
+                <div class="hero-badges">
+                    <span><i class="fab fa-android"></i> Android 9+</span>
+                    <span><i class="fas fa-code"></i> 100% Kotlin • Jetpack Compose</span>
+                    <span><i class="fas fa-lock"></i> Secure • GDPR-ready</span>
                 </div>
             </div>
 
             <div class="hero-image">
-                <div class="phone-mockup">
-                    <img src="https://i.postimg.cc/QCDpfX70/ggggg.png" alt="WebControl X Interface">
+                <div class="phone-mockup modern">
+                    <img src="https://i.postimg.cc/QCDpfX70/ggggg.png" alt="WebControl X">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview / Value Prop -->
+    <section class="overview">
+        <div class="container">
+            <h2 class="section-title">Why WebControl X?</h2>
+            <p class="section-subtitle center">
+                Traditional WebView apps become static after release.<br>
+                WebControl X gives you structured <strong>post-launch control</strong> — reduce updates, speed up iteration, lower maintenance cost.
+            </p>
+
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Remote Everything</h3>
+                    <p>URL, sections, texts, features, ads — change via JSON without resubmitting to Play Store.</p>
+                </div>
+                <div class="overview-item">
+                    <i class="fas fa-shield-halved"></i>
+                    <h3>Production-Grade Security</h3>
+                    <p>HTTPS-only, certificate pinning, domain whitelisting, hardened WebView.</p>
+                </div>
+                <div class="overview-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Flexible Monetization</h3>
+                    <p>AdMob Banner / Interstitial / App Open — fully configurable remotely + test mode.</p>
+                </div>
+                <div class="overview-item">
+                    <i class="fas fa-cubes"></i>
+                    <h3>Modern Tech Stack</h3>
+                    <p>Kotlin, Jetpack Compose, Material 3, Coroutines, Clean Architecture.</p>
                 </div>
             </div>
         </div>
@@ -65,71 +108,93 @@
     <!-- Features -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Powerful Remote Control Platform</h2>
+            <h2 class="section-title">Key Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                    <h3>Remote JSON Configuration</h3>
-                    <p>Update website URL, allowed domains, navigation items, labels, feature flags, theme colors, and text — all without redeploying.</p>
+                    <div class="feature-icon"><i class="fas fa-cloud-arrow-down"></i></div>
+                    <h3>Remote + Local Fallback</h3>
+                    <p>Secure JSON fetch with bundled fallback configuration.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-ban"></i></div>
+                    <div class="feature-icon"><i class="fas fa-toggle-on"></i></div>
                     <h3>Dynamic Feature Flags</h3>
-                    <p>Enable/disable entire screens, sections or functionalities remotely. Perfect for A/B testing or phased rollouts.</p>
+                    <p>Enable/disable screens and functionality remotely.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-ad"></i></div>
-                    <h3>Full AdMob Monetization Control</h3>
-                    <p>Banner, Interstitial, App Open ads — toggle, frequency, placement and test mode via config. GDPR consent included.</p>
+                    <div class="feature-icon"><i class="fas fa-font"></i></div>
+                    <h3>Live UI & Text Updates</h3>
+                    <p>Change labels, sections, theme without code changes.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
-                    <h3>Enterprise-Grade Security</h3>
-                    <p>HTTPS enforcement, certificate pinning, domain whitelisting, hardened WebView, encrypted storage.</p>
+                    <div class="feature-icon"><i class="fab fa-adn"></i></div>
+                    <h3>AdMob Monetization Suite</h3>
+                    <p>Banner, Interstitial, App Open — frequency & test mode configurable.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-plug"></i></div>
-                    <h3>Offline + Fallback Support</h3>
-                    <p>Remote fetch with local bundled config fallback. Offline page caching built-in.</p>
+                    <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>GDPR Consent Flow</h3>
+                    <p>Built-in, remote-toggleable consent management.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-code"></i></div>
-                    <h3>Modern Clean Architecture</h3>
-                    <p>100% Kotlin • Jetpack Compose • Material 3 • Coroutines/Flow • Modular & scalable code.</p>
+                    <div class="feature-icon"><i class="fas fa-link-slash"></i></div>
+                    <h3>Secure & Stable WebView</h3>
+                    <p>HTTPS enforcement, cert pinning, internal link handling, offline support.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Section -->
-    <section id="why" class="why-section">
+    <!-- Remote Config Explainer -->
+    <section id="remote" class="remote-config">
         <div class="container">
-            <h2 class="section-title">Why Developers Choose WebControl X</h2>
-            <div class="why-grid">
-                <div class="why-item">
-                    <h3>Launch Once, Update Forever</h3>
-                    <p>Avoid Google Play resubmissions for small changes — save weeks of waiting and review risk.</p>
-                </div>
-                <div class="why-item">
-                    <h3>Reduced Maintenance Cost</h3>
-                    <p>Fix bugs, add features, change monetization — all through config. Faster iteration, happier clients.</p>
-                </div>
-                <div class="why-item">
-                    <h3>Built for Long-term Projects</h3>
-                    <p>Clean architecture + modern stack = easy to extend and maintain for years.</p>
-                </div>
+            <h2 class="section-title">Powerful Remote Configuration</h2>
+            <p class="section-subtitle center">
+                Control almost every aspect of your app behavior through one secure JSON file.
+            </p>
+
+            <div class="config-list">
+                <div>• Primary & fallback website URL + allowed domains</div>
+                <div>• Navigation menu items, labels & order</div>
+                <div>• Feature toggles (show/hide sections)</div>
+                <div>• UI strings, colors & theme overrides</div>
+                <div>• Ad unit IDs, frequency & placement rules</div>
+                <div>• App Open / Interstitial trigger conditions</div>
             </div>
+
+            <p class="center margin-top-2x">
+                If remote config fails → app gracefully uses local defaults. Zero crashes, zero user impact.
+            </p>
         </div>
     </section>
 
-    <!-- Screenshots (kept similar but cleaner) -->
+    <!-- Screenshots -->
     <section id="screenshots" class="screenshots">
         <div class="container">
             <h2 class="section-title">Interface Previews</h2>
+            <p class="section-subtitle center">Modern Material 3 design powered by Jetpack Compose</p>
+
             <div class="slideshow-container">
-                <!-- Keep your existing slides structure here -->
-                <!-- ... paste your .slides-wrapper content ... -->
-                <!-- Consider adding captions like "Remote Config Dashboard", "Ad Settings", etc. -->
+                <!-- Keep your existing slides structure but consider horizontal scroll on desktop for better UX -->
+                <!-- ... your slides ... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience & Stack -->
+    <section class="audience">
+        <div class="container">
+            <h2 class="section-title">Who Is WebControl X For?</h2>
+            <div class="audience-grid">
+                <div class="audience-card">Android developers</div>
+                <div class="audience-card">Agencies building client WebView apps</div>
+                <div class="audience-card">Content platforms & blogs</div>
+                <div class="audience-card">Startups launching fast MVPs</div>
+                <div class="audience-card">Businesses needing flexible mobile presence</div>
+            </div>
+
+            <div class="tech-stack center margin-top-2x">
+                <h3>Technology Stack</h3>
+                <p>100% Kotlin • Jetpack Compose • Material 3 • Coroutines & Flow • Clean Architecture • Modern Android APIs</p>
             </div>
         </div>
     </section>
@@ -137,13 +202,14 @@
     <!-- Download / CTA -->
     <section id="download" class="download">
         <div class="container">
-            <h2 class="section-title">Ready to Take Control?</h2>
+            <h2 class="section-title white">Ready to Take Control?</h2>
             <p class="download-description">
-                Get the full professional source code with lifetime updates, documentation, and support.
+                Get lifetime access + future updates. Professional license available exclusively on CodeCanyon.
             </p>
 
             <div class="download-buttons">
-                <a href="https://codecanyon.net/user/sorymohajer/portfolio" target="_blank" class="download-btn primary-btn">
+                <a href="https://codecanyon.net/user/sorymohajer/portfolio" 
+                   target="_blank" class="download-btn codecanyon-btn">
                     <div class="btn-content">
                         <i class="fas fa-shopping-cart"></i>
                         <div class="btn-text">
@@ -153,58 +219,30 @@
                     </div>
                 </a>
 
-                <a href="https://www.mediafire.com/file/8z6g490pa9qk3zu/WebView+Pro.apk/file" target="_blank" class="download-btn secondary-btn">
+                <a href="https://www.mediafire.com/file/8z6g490pa9qk3zu/WebView+Pro.apk/file" 
+                   target="_blank" class="download-btn secondary-btn">
                     <div class="btn-content">
                         <i class="fas fa-download"></i>
                         <div class="btn-text">
-                            <span class="main-text">Free Trial APK</span>
-                            <span class="sub-text">Test Before Purchase</span>
+                            <span class="main-text">Try Free Version</span>
+                            <span class="sub-text">Limited Features • No Source</span>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <p class="note-text">Professional license removes branding & unlocks remote config backend examples.</p>
+            <p class="center margin-top">Note: Full version includes source code, documentation & remote config backend examples.</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <!-- Keep similar structure, update year to 2026, fix social links if needed -->
-            <div class="footer-bottom">
-                <p>© 2026 WebControl X. Built for developers who value control.</p>
-            </div>
+        <!-- Keep similar but update year to 2026 and links -->
+        <div class="footer-bottom">
+            <p>© 2026 WebControl X – Remote Configurable WebView Platform. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Basic slider logic (expand if needed)
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function changeSlide(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-            }
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-            slides[slideIndex-1].classList.add("active");
-            dots[slideIndex-1].classList.add("active");
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
