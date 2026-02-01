@@ -173,9 +173,6 @@ body {
 }
 
 .hero-title {
-   white-space: normal !important;     /* يسمح بالانتقال لسطر جديد */
-    line-height: 1.1;                   /* أو 1.15 حسب الذوق */
-    word-break: break-word;             /* احتياطي إضافي */
     font-size: 3.8rem;
     font-weight: 800;
     line-height: 1.1;
@@ -184,6 +181,11 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    white-space: normal;          /* مهم جدًا */
+}
+
+.line-break {
+    display: block;               /* يجبر الانتقال لسطر جديد */
 }
 
 .hero-subtitle {
@@ -534,5 +536,6 @@ body {
         padding: 0.9rem 1.8rem;
     }
 }
+
 
 
