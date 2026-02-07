@@ -1,236 +1,807 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WebControl X – Admin Control Panel</title><style>body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#0f172a;margin:0}.wrap{max-width:1100px;margin:0 auto;padding:24px}.card{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.2);margin-bottom:20px;overflow:hidden}.card h2{margin:0;padding:18px 20px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:18px}.section{padding:18px 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:12px;color:#334155}.field input,.field textarea,.field select{border:1px solid #e5e7eb;border-radius:10px;padding:10px 12px;font-size:14px;outline:none}.row{display:flex;gap:10px;flex-wrap:wrap}.btn{background:#1f2937;color:#fff;border:none;border-radius:12px;padding:10px 16px;font-weight:600;cursor:pointer}.btn.primary{background:#4f46e5}.btn.success{background:#16a34a}.btn.warn{background:#f59e0b}.btn.danger{background:#dc2626}.status{background:#0b1220;color:#e2e8f0;border-radius:12px;padding:12px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px}.note{font-size:12px;color:#64748b}.pill{display:inline-block;background:#f1f5f9;color:#0f172a;border-radius:999px;padding:6px 10px;font-size:12px;margin-right:8px}.actions{display:flex;gap:10px;flex-wrap:wrap}.textarea{min-height:200px}</style></head><body><div class="wrap">
-  <div class="card"><h2>Load / Import</h2><div class="section grid"><div class="field"><label>Remote JSON URL (HTTPS)</label><input id="remoteUrl" placeholder="https://example.com/remote_config.json"></div><div class="field"><label>Import from device</label><input id="fileInput" type="file" accept="application/json"></div></div><div class="section actions"><button class="btn primary" id="loadBtn">Load</button><span class="pill">HTTPS required</span></div></div>
-  <div class="card"><h2>Config Wizard</h2><div class="section grid">
-    <div class="field"><label>Website URL</label><input id="websiteUrl" placeholder="https://your-website.com"></div>
-    <div class="field"><label>Website Name</label><input id="websiteName" placeholder="Your Website Name"></div>
-    <div class="field"><label>Homepage URL</label><input id="homepageUrl" placeholder="https://your-website.com/"></div>
-    <div class="field"><label>Allowed Origins (comma)</label><input id="allowedOrigins" placeholder="https://your-website.com, https://sub.your-website.com"></div>
-    <div class="field"><label>App Name</label><input id="appName" placeholder="My WebControl App"></div>
-    <div class="field"><label>Subtitle</label><input id="appSubtitle" placeholder="Modern WebView Platform"></div>
-    <div class="field"><label>Version</label><input id="version" placeholder="1.0.0"></div>
-    <div class="field"><label>Developer</label><input id="developer" placeholder="Your Company"></div>
-    <div class="field"><label>Support Email</label><input id="supportEmail" placeholder="support@example.com"></div>
-    <div class="field"><label>About URL</label><input id="aboutUrl" placeholder="https://your-website.com/p/about.html"></div>
-    <div class="field"><label>Privacy URL</label><input id="privacyPolicyUrl" placeholder="https://your-website.com/p/privacy.html"></div>
-    <div class="field"><label>Contact URL</label><input id="contactUrl" placeholder="https://your-website.com/p/contact.html"></div>
-    <div class="field"><label>Terms URL</label><input id="termsOfServiceUrl" placeholder="https://your-website.com/p/terms.html"></div>
-    <div class="field"><label>Settings Title</label><input id="settingsTitle" value="Settings"></div>
-    <div class="field"><label>Settings Subtitle</label><input id="settingsSubtitle" value="Customize your experience"></div>
-    <div class="field"><label>Loading Text</label><input id="loadingText" value="Loading..."></div>
-    <div class="field"><label>Copyright</label><input id="copyrightText" value="© 2026"></div>
-    <div class="field"><label>Nav Home</label><input id="navHome" value="Home"></div>
-    <div class="field"><label>Nav Sections</label><input id="navSections" value="Sections"></div>
-    <div class="field"><label>Nav Settings</label><input id="navSettings" value="Settings"></div>
-    <div class="field"><label>Nav Favorites</label><input id="navFavorites" value="Favorites"></div>
-    <div class="field"><label>Button About</label><input id="btnAbout" value="About App"></div>
-    <div class="field"><label>Button Privacy</label><input id="btnPrivacy" value="Privacy Policy"></div>
-    <div class="field"><label>Button Contact</label><input id="btnContact" value="Contact Us"></div>
-  </div>
-  <div class="section row">
-    <label class="pill"><input type="checkbox" id="fSections" checked> Sections</label>
-    <label class="pill"><input type="checkbox" id="fFavorites" checked> Favorites</label>
-    <label class="pill"><input type="checkbox" id="fOffline" checked> Offline</label>
-    <label class="pill"><input type="checkbox" id="fShare" checked> Share</label>
-    <label class="pill"><input type="checkbox" id="fNotifications" checked> Notifications</label>
-    <label class="pill"><input type="checkbox" id="fSearch"> Search</label>
-    <label class="pill"><input type="checkbox" id="fDark" checked> Dark Mode</label>
-    <label class="pill"><input type="checkbox" id="fCompact"> Compact</label>
-    <label class="pill"><input type="checkbox" id="fThemePicker"> Theme Picker</label>
-    <label class="pill"><input type="checkbox" id="fSplash" checked> Splash</label>
-    <label class="pill"><input type="checkbox" id="fExitConfirm" checked> Exit Confirm</label>
-  </div>
-  <div class="section grid">
-    <div class="field"><label>Internal Navigation</label><select id="internalNav"><option>true</option><option>false</option></select></div>
-    <div class="field"><label>Rate Limit/min</label><input id="rateLimit" type="number" value="30"></div>
-    <div class="field"><label>Replay Protection</label><select id="replayProt"><option>true</option><option>false</option></select></div>
-    <div class="field"><label>Mixed Content</label><select id="mixedContent"><option>compatibility</option><option>strict</option></select></div>
-    <div class="field"><label>Cert Pinning</label><select id="certPin"><option>true</option><option>false</option></select></div>
-    <div class="field"><label>Strict Mixed</label><select id="strictMixed"><option>true</option><option>false</option></select></div>
-    <div class="field"><label>3rd Party Cookies</label><select id="thirdCookies"><option>false</option><option>true</option></select></div>
-    <div class="field"><label>Screen Protect</label><select id="screenProt"><option>true</option><option>false</option></select></div>
-    <div class="field"><label>Allow Subdomains</label><select id="allowSubdomains"><option>true</option><option>false</option></select></div>
-  </div>
-  <div class="section grid">
-    <div class="field"><label>Ads Enabled</label><select id="adsEnabled"><option>true</option><option>false</option></select></div>
-    <div class="field"><label>Test Mode</label><select id="adsTest"><option>false</option><option>true</option></select></div>
-    <div class="field"><label>GDPR</label><select id="gdprEnabled"><option>true</option><option>false</option></select></div>
-    <div class="field"><label>App ID</label><input id="adAppId"></div>
-    <div class="field"><label>Banner ID</label><input id="adBannerId"></div>
-    <div class="field"><label>Interstitial ID</label><input id="adInterId"></div>
-    <div class="field"><label>App Open ID</label><input id="adOpenId"></div>
-    <div class="field"><label>Banner Position</label><select id="bannerPos"><option>bottom</option><option>top</option></select></div>
-    <div class="field"><label>Banner Size</label><select id="bannerSize"><option>adaptive</option><option>standard</option></select></div>
-    <div class="field"><label>Banner Refresh</label><input id="bannerRefresh" type="number" value="60"></div>
-    <div class="field"><label>Interstitial Interval</label><input id="interInterval" type="number" value="300"></div>
-    <div class="field"><label>Interstitial Max</label><input id="interMax" type="number" value="5"></div>
-    <div class="field"><label>App Open Cold</label><select id="openCold"><option>true</option><option>false</option></select></div>
-    <div class="field"><label>App Open Warm</label><select id="openWarm"><option>false</option><option>true</option></select></div>
-    <div class="field"><label>App Open Timeout</label><input id="openTimeout" type="number" value="4000"></div>
-  </div>
-  <div class="section">
-    <div class="row">
-      <div class="field"><label>Section Name</label><input id="secName"></div>
-      <div class="field"><label>URL</label><input id="secUrl" placeholder="/search/label/tech"></div>
-      <div class="field"><label>Icon</label><input id="secIcon" placeholder="article"></div>
-      <div class="field"><label>Color</label><input id="secColor" placeholder="#2196F3"></div>
-      <div class="field"><label>Enabled</label><select id="secEnabled"><option>true</option><option>false</option></select></div>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebControl X – لوحة التحكم</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#0f172a;color:#e2e8f0;margin:0;direction:rtl}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px}
+    .card{background:#1e293b;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);margin-bottom:24px;overflow:hidden}
+    .card h2{margin:0;padding:18px 24px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:1.25rem}
+    .section{padding:20px 24px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field label{font-size:0.85rem;color:#94a3b8;margin-bottom:4px}
+    .field input,.field textarea,.field select{border:1px solid #334155;border-radius:10px;padding:10px 14px;font-size:0.95rem;background:#0f172a;color:#e2e8f0;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:#6366f1;outline:none}
+    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+    .btn{padding:10px 18px;border:none;border-radius:10px;font-weight:600;cursor:pointer;transition:all 0.2s}
+    .btn.primary{background:#4f46e5;color:white}
+    .btn.primary:hover{background:#4338ca}
+    .btn.success{background:#16a34a;color:white}
+    .btn.success:hover{background:#15803d}
+    .btn.warn{background:#f59e0b;color:white}
+    .btn.danger{background:#dc2626;color:white}
+    .btn:disabled{opacity:0.5;cursor:not-allowed}
+    .status{background:#0b1220;border-radius:10px;padding:12px 16px;font-family:ui-monospace,monospace;font-size:0.9rem;margin:12px 0;min-height:1.4em}
+    .pill{display:inline-flex;align-items:center;background:#334155;color:#e2e8f0;border-radius:999px;padding:6px 12px;font-size:0.8rem;margin:4px 8px 4px 0}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+    .textarea{min-height:240px;font-family:ui-monospace,monospace;font-size:0.9rem}
+    .missing{color:#f87171;font-weight:500}
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- 1. استيراد -->
+  <div class="card">
+    <h2>استيراد الإعدادات</h2>
+    <div class="section grid">
+      <div class="field">
+        <label>رابط JSON عن بعد (HTTPS فقط)</label>
+        <input id="remoteUrl" placeholder="https://example.com/remote_config.json" type="url">
+      </div>
+      <div class="field">
+        <label>استيراد ملف من الجهاز</label>
+        <input id="fileInput" type="file" accept=".json,application/json">
+      </div>
     </div>
-    <div class="row actions"><button class="btn primary" id="addSection">Add Section</button><span class="pill">Icons: article, security, computer, phone_android, code</span></div>
-    <div id="sectionsList"></div>
+    <div class="section actions">
+      <button class="btn primary" id="loadBtn">تحميل</button>
+      <span class="pill">HTTPS مطلوب</span>
+    </div>
   </div>
-  <div class="section actions"><button class="btn success" id="wizardGenerate">Generate JSON</button></div>
+
+  <!-- 2. معالج الإعدادات (Wizard) -->
+  <div class="card">
+    <h2>معالج الإعدادات</h2>
+
+    <div class="section grid">
+      <div class="field"><label>رابط الموقع الرئيسي</label><input id="websiteUrl" placeholder="https://your-site.com" required></div>
+      <div class="field"><label>اسم الموقع</label><input id="websiteName" placeholder="اسم موقعك" required></div>
+      <div class="field"><label>رابط الصفحة الرئيسية</label><input id="homepageUrl" placeholder="https://your-site.com/" required></div>
+      <div class="field"><label>الأصول المسموحة (مفصولة بفواصل)</label><input id="allowedOrigins" placeholder="https://your-site.com, https://sub.your-site.com" required></div>
+    </div>
+
+    <div class="section grid">
+      <div class="field"><label>اسم التطبيق</label><input id="appName" placeholder="My Web App" required></div>
+      <div class="field"><label>العنوان الفرعي</label><input id="appSubtitle" placeholder="تجربة تصفح متطورة"></div>
+      <div class="field"><label>الإصدار</label><input id="version" placeholder="1.0.0" required></div>
+      <div class="field"><label>المطور / الشركة</label><input id="developer" placeholder="اسم الشركة" required></div>
+      <div class="field"><label>البريد الداعم</label><input id="supportEmail" placeholder="support@your-site.com"></div>
+    </div>
+
+    <div class="section grid">
+      <div class="field"><label>رابط صفحة عن التطبيق</label><input id="aboutUrl" placeholder="https://your-site.com/about"></div>
+      <div class="field"><label>رابط سياسة الخصوصية</label><input id="privacyPolicyUrl" placeholder="https://your-site.com/privacy"></div>
+      <div class="field"><label>رابط التواصل</label><input id="contactUrl" placeholder="https://your-site.com/contact"></div>
+      <div class="field"><label>رابط شروط الخدمة</label><input id="termsOfServiceUrl" placeholder="https://your-site.com/terms"></div>
+    </div>
+
+    <div class="section grid">
+      <div class="field"><label>عنوان صفحة الإعدادات</label><input id="settingsTitle" value="الإعدادات"></div>
+      <div class="field"><label>وصف صفحة الإعدادات</label><input id="settingsSubtitle" value="خصص تجربتك"></div>
+      <div class="field"><label>نص التحميل</label><input id="loadingText" value="جاري التحميل..."></div>
+      <div class="field"><label>نص حقوق النشر</label><input id="copyrightText" value="© 2026 جميع الحقوق محفوظة"></div>
+    </div>
+
+    <div class="section grid">
+      <div class="field"><label>زر الصفحة الرئيسية</label><input id="navHome" value="الرئيسية"></div>
+      <div class="field"><label>زر الأقسام</label><input id="navSections" value="الأقسام"></div>
+      <div class="field"><label>زر الإعدادات</label><input id="navSettings" value="الإعدادات"></div>
+      <div class="field"><label>زر المفضلة</label><input id="navFavorites" value="المفضلة"></div>
+    </div>
+
+    <div class="section grid">
+      <div class="field"><label>زر عن التطبيق</label><input id="btnAbout" value="عن التطبيق"></div>
+      <div class="field"><label>زر سياسة الخصوصية</label><input id="btnPrivacy" value="سياسة الخصوصية"></div>
+      <div class="field"><label>زر تواصل معنا</label><input id="btnContact" value="تواصل معنا"></div>
+    </div>
+
+    <div class="section">
+      <h3 style="margin:0 0 12px;color:#c084fc">الميزات المفعّلة</h3>
+      <div class="row" style="gap:16px">
+        <label class="pill"><input type="checkbox" id="fSections" checked> الأقسام</label>
+        <label class="pill"><input type="checkbox" id="fFavorites" checked> المفضلة</label>
+        <label class="pill"><input type="checkbox" id="fOffline" checked> الوضع بدون إنترنت</label>
+        <label class="pill"><input type="checkbox" id="fShare" checked> مشاركة</label>
+        <label class="pill"><input type="checkbox" id="fNotifications" checked> الإشعارات</label>
+        <label class="pill"><input type="checkbox" id="fSearch"> البحث</label>
+        <label class="pill"><input type="checkbox" id="fDark" checked> الوضع الداكن</label>
+        <label class="pill"><input type="checkbox" id="fCompact"> الوضع المدمج</label>
+        <label class="pill"><input type="checkbox" id="fThemePicker"> اختيار الثيم</label>
+        <label class="pill"><input type="checkbox" id="fSplash" checked> شاشة البداية</label>
+        <label class="pill"><input type="checkbox" id="fExitConfirm" checked> تأكيد الخروج</label>
+      </div>
+    </div>
+
+    <div class="section grid">
+      <div class="field"><label>التنقل الداخلي</label><select id="internalNav"><option value="true">مفعل</option><option value="false">معطل</option></select></div>
+      <div class="field"><label>حد الطلبات في الدقيقة</label><input id="rateLimit" type="number" min="1" value="30"></div>
+      <div class="field"><label>حماية إعادة التشغيل (Replay Protection)</label><select id="replayProt"><option value="true">مفعل</option><option value="false">معطل</option></select></div>
+      <div class="field"><label>معالجة المحتوى المختلط</label><select id="mixedContent"><option>compatibility</option><option>strict</option></select></div>
+      <div class="field"><label>تثبيت الشهادة (Cert Pinning)</label><select id="certPin"><option value="true">مفعل</option><option value="false">معطل</option></select></div>
+      <div class="field"><label>منع المحتوى المختلط بشكل صارم</label><select id="strictMixed"><option value="true">مفعل</option><option value="false">معطل</option></select></div>
+      <div class="field"><label>الكوكيز من جهات خارجية</label><select id="thirdCookies"><option value="false">معطل</option><option value="true">مفعل</option></select></div>
+      <div class="field"><label>حماية من تسجيل الشاشة</label><select id="screenProt"><option value="true">مفعل</option><option value="false">معطل</option></select></div>
+      <div class="field"><label>السماح بالنطاقات الفرعية</label><select id="allowSubdomains"><option value="true">مفعل</option><option value="false">معطل</option></select></div>
+    </div>
+
+    <!-- الإعلانات -->
+    <div class="section grid">
+      <div class="field"><label>تفعيل الإعلانات</label><select id="adsEnabled"><option value="true">نعم</option><option value="false">لا</option></select></div>
+      <div class="field"><label>وضع الاختبار</label><select id="adsTest"><option value="false">إنتاج</option><option value="true">اختبار</option></select></div>
+      <div class="field"><label>تفعيل GDPR</label><select id="gdprEnabled"><option value="true">نعم</option><option value="false">لا</option></select></div>
+      <div class="field"><label>معرف التطبيق (App ID)</label><input id="adAppId" required></div>
+      <div class="field"><label>معرف البانر</label><input id="adBannerId" required></div>
+      <div class="field"><label>معرف الإعلان البيني</label><input id="adInterId" required></div>
+      <div class="field"><label>معرف إعلان فتح التطبيق</label><input id="adOpenId" required></div>
+    </div>
+
+    <div class="section grid">
+      <div class="field"><label>موقع البانر</label><select id="bannerPos"><option>bottom</option><option>top</option></select></div>
+      <div class="field"><label>حجم البانر</label><select id="bannerSize"><option>adaptive</option><option>standard</option></select></div>
+      <div class="field"><label>فترة تحديث البانر (ثانية)</label><input id="bannerRefresh" type="number" min="30" value="60"></div>
+      <div class="field"><label>الفاصل بين الإعلانات البينية (ثانية)</label><input id="interInterval" type="number" min="60" value="300"></div>
+      <div class="field"><label>أقصى عدد بيني لكل جلسة</label><input id="interMax" type="number" min="1" value="5"></div>
+      <div class="field"><label>إعلان فتح التطبيق عند البداية الباردة</label><select id="openCold"><option value="true">نعم</option><option value="false">لا</option></select></div>
+      <div class="field"><label>إعلان فتح التطبيق عند العودة</label><select id="openWarm"><option value="false">لا</option><option value="true">نعم</option></select></div>
+      <div class="field"><label>مهلة إعلان الفتح (ms)</label><input id="openTimeout" type="number" value="4000"></div>
+    </div>
+
+    <!-- الأقسام -->
+    <div class="section">
+      <h3 style="margin:0 0 16px;color:#c084fc">إدارة الأقسام</h3>
+      <div class="row">
+        <div class="field"><label>اسم القسم</label><input id="secName" placeholder="أخبار تقنية"></div>
+        <div class="field"><label>الرابط</label><input id="secUrl" placeholder="/search/label/tech"></div>
+        <div class="field"><label>أيقونة Material</label><input id="secIcon" placeholder="article" list="icon-suggestions"></div>
+        <div class="field"><label>لون (hex)</label><input id="secColor" placeholder="#2196F3" type="color"></div>
+        <div class="field"><label>مفعل؟</label><select id="secEnabled"><option value="true">نعم</option><option value="false">لا</option></select></div>
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="addSection">إضافة قسم</button>
+        <span class="pill">أمثلة أيقونات: article, newspaper, star, favorite, code, phone_android, computer, school</span>
+      </div>
+      <datalist id="icon-suggestions">
+        <option value="article">
+        <option value="newspaper">
+        <option value="star">
+        <option value="favorite">
+        <option value="code">
+        <option value="phone_android">
+        <option value="computer">
+        <option value="school">
+      </datalist>
+      <div id="sectionsList" style="margin-top:20px"></div>
+    </div>
+
+    <div class="section actions">
+      <button class="btn success" id="wizardGenerate">إنشاء JSON من الإعدادات</button>
+    </div>
   </div>
-  <div class="card"><h2>Edit Configuration</h2><div class="section"><div class="field"><label>JSON</label><textarea id="jsonText" class="textarea" spellcheck="false"></textarea></div><div class="row actions"><button class="btn success" id="validateBtn">Validate JSON</button><button class="btn" id="syncWizardBtn">Sync From JSON</button><button class="btn" id="copyBtn">Copy</button><button class="btn" id="downloadBtn">Download remote_config.json</button></div><div class="status" id="status">Ready</div></div></div>
-  <div class="card"><h2>Publish to GitHub</h2><div class="section grid"><div class="field"><label>Owner</label><input id="ghOwner" placeholder="your-username"></div><div class="field"><label>Repository</label><input id="ghRepo" placeholder="your-repo"></div><div class="field"><label>Branch</label><input id="ghBranch" value="main"></div><div class="field"><label>Path in repo</label><input id="ghPath" value="WebView-Pro/remote_config.json"></div><div class="field"><label>Commit message</label><input id="ghMsg" value="Update remote_config.json"></div><div class="field"><label>GitHub Token</label><input id="ghToken" type="password" placeholder="ghp_..."></div></div><div class="section actions"><button class="btn primary" id="publishBtn">Publish</button><button class="btn warn" id="rawBtn">Generate Raw URL</button><span class="pill">Use serverless proxy in production</span></div></div>
-  <div class="card"><h2>Publish to Other Providers</h2><div class="section grid"><div class="field"><label>Presigned PUT URL (S3/R2)</label><input id="presignedUrl" placeholder="https://..."></div><div class="field"><label>Generic Endpoint URL</label><input id="endpointUrl" placeholder="https://api.example.com/config"></div><div class="field"><label>Bearer Token</label><input id="endpointToken" placeholder="token"></div></div><div class="section actions"><button class="btn primary" id="putPresignedBtn">Publish via Presigned PUT</button><button class="btn primary" id="postEndpointBtn">Publish via POST</button></div></div>
-</div><script>
-const statusEl=document.getElementById('status');function setStatus(s){statusEl.textContent=s}
-document.getElementById('loadBtn').onclick=async()=>{const url=document.getElementById('remoteUrl').value.trim();if(!url||!url.startsWith('https://')){setStatus('Enter a valid HTTPS URL');return}try{const r=await fetch(url,{cache:'no-store'});if(!r.ok){setStatus('Fetch failed: '+r.status);return}const data=await r.json();document.getElementById('jsonText').value=JSON.stringify(data,null,2);setStatus('Loaded JSON from remote')}catch(e){setStatus('Error: '+e.message)}};
-document.getElementById('fileInput').onchange=async(e)=>{const f=e.target.files&&e.target.files[0];if(!f)return;try{const txt=await f.text();JSON.parse(txt);document.getElementById('jsonText').value=txt;setStatus('Loaded JSON from device')}catch(err){setStatus('Invalid JSON file')}};
-document.getElementById('validateBtn').onclick=()=>{try{const obj=JSON.parse(document.getElementById('jsonText').value);if(typeof obj!=='object'||!obj){setStatus('Invalid: not an object');return}setStatus('Valid JSON')}catch(e){setStatus('Invalid JSON: '+e.message)}};
-document.getElementById('copyBtn').onclick=async()=>{try{await navigator.clipboard.writeText(document.getElementById('jsonText').value);setStatus('Copied to clipboard')}catch(e){setStatus('Copy failed')}};
-document.getElementById('downloadBtn').onclick=()=>{try{const blob=new Blob([document.getElementById('jsonText').value],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='remote_config.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);setStatus('Downloaded remote_config.json')}catch(e){setStatus('Download failed')}};
-async function getSha(owner,repo,branch,path,token){const url=`https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path)}?ref=${encodeURIComponent(branch)}`;const r=await fetch(url,{headers:{Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json'}});if(r.status===404)return null;if(!r.ok)throw new Error('Get SHA failed: '+r.status);const j=await r.json();return j.sha||null}
-document.getElementById('publishBtn').onclick=async()=>{const owner=document.getElementById('ghOwner').value.trim();const repo=document.getElementById('ghRepo').value.trim();const branch=document.getElementById('ghBranch').value.trim()||'main';const path=document.getElementById('ghPath').value.trim();const msg=document.getElementById('ghMsg').value.trim()||'Update remote_config.json';const token=document.getElementById('ghToken').value.trim();if(!owner||!repo||!path||!token){setStatus('Fill owner/repo/path/token');return}let jsonText=document.getElementById('jsonText').value;try{JSON.parse(jsonText)}catch(e){setStatus('Invalid JSON: '+e.message);return}const content=btoa(unescape(encodeURIComponent(jsonText)));try{const sha=await getSha(owner,repo,branch,path,token);const url=`https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path)}`;const body={message:msg,content,branch};if(sha)body.sha=sha;const r=await fetch(url,{method:'PUT',headers:{Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json'},body:JSON.stringify(body)});if(!r.ok){setStatus('Publish failed: '+r.status);return}const j=await r.json();setStatus('Published commit: '+(j.commit&&j.commit.sha?j.commit.sha.substring(0,7):'ok'))}catch(e){setStatus('Error: '+e.message)}};
-document.getElementById('rawBtn').onclick=()=>{const owner=document.getElementById('ghOwner').value.trim();const repo=document.getElementById('ghRepo').value.trim();const branch=document.getElementById('ghBranch').value.trim()||'main';const path=document.getElementById('ghPath').value.trim();if(!owner||!repo||!path){setStatus('Fill owner/repo/path');return}const raw=`https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;navigator.clipboard.writeText(raw).then(()=>setStatus('Raw URL copied: '+raw)).catch(()=>setStatus('Raw URL: '+raw))};
-document.getElementById('putPresignedBtn').onclick=async()=>{const url=document.getElementById('presignedUrl').value.trim();if(!url||!url.startsWith('https://')){setStatus('Enter presigned HTTPS URL');return}try{const txt=document.getElementById('jsonText').value;JSON.parse(txt);const r=await fetch(url,{method:'PUT',headers:{'Content-Type':'application/json'},body:txt});if(r.ok){setStatus('Uploaded via presigned PUT')}else{setStatus('Upload failed: '+r.status)}}catch(e){setStatus('Error: '+e.message)}};
-document.getElementById('postEndpointBtn').onclick=async()=>{const url=document.getElementById('endpointUrl').value.trim();const token=document.getElementById('endpointToken').value.trim();if(!url||!url.startsWith('https://')){setStatus('Enter endpoint HTTPS URL');return}try{const txt=document.getElementById('jsonText').value;const obj=JSON.parse(txt);const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json',...(token?{'Authorization':'Bearer '+token}:{})},body:JSON.stringify(obj)});if(r.ok){setStatus('Published to endpoint')}else{setStatus('Endpoint failed: '+r.status)}}catch(e){setStatus('Error: '+e.message)}};
-const sections=[];function renderSections(){const list=document.getElementById('sectionsList');list.innerHTML='';sections.forEach((s,i)=>{const el=document.createElement('div');el.className='row';el.innerHTML=`<div class="field"><label>Name</label><input value="${s.name}" data-i="${i}" data-k="name"></div><div class="field"><label>URL</label><input value="${s.url}" data-i="${i}" data-k="url"></div><div class="field"><label>Icon</label><input value="${s.icon}" data-i="${i}" data-k="icon"></div><div class="field"><label>Color</label><input value="${s.color}" data-i="${i}" data-k="color"></div><div class="field"><label>Enabled</label><select data-i="${i}" data-k="enabled"><option ${s.enabled?'selected':''}>true</option><option ${!s.enabled?'selected':''}>false</option></select></div><button class="btn danger" data-del="${i}">Remove</button>`;list.appendChild(el)});list.querySelectorAll('input,select').forEach(inp=>{inp.onchange=e=>{const i=parseInt(e.target.dataset.i,10);const k=e.target.dataset.k;let v=e.target.value;if(k==='enabled')v=v==='true';sections[i][k]=v}});list.querySelectorAll('button[data-del]').forEach(btn=>{btn.onclick=e=>{const i=parseInt(e.target.dataset.del,10);sections.splice(i,1);renderSections()}})}
-document.getElementById('addSection').onclick=()=>{const s={name:document.getElementById('secName').value.trim(),url:document.getElementById('secUrl').value.trim(),icon:document.getElementById('secIcon').value.trim(),color:document.getElementById('secColor').value.trim(),enabled:document.getElementById('secEnabled').value==='true'};if(!s.name||!s.url)return;sections.push(s);document.getElementById('secName').value='';document.getElementById('secUrl').value='';document.getElementById('secIcon').value='';document.getElementById('secColor').value='';renderSections()};
-function val(id){return document.getElementById(id).value}function bool(id){return document.getElementById(id).value==='true'}function num(id){return parseInt(document.getElementById(id).value,10)||0}
-function buildConfig(){const origins=val('allowedOrigins').split(',').map(x=>x.trim()).filter(Boolean);return{websiteUrl:val('websiteUrl'),websiteName:val('websiteName'),homepageUrl:val('homepageUrl'),security:{allowedOrigins:origins,allowSubdomains:bool('allowSubdomains'),certPinningEnabled:bool('certPin'),strictMixedContentEnabled:bool('strictMixed'),acceptThirdPartyCookies:bool('thirdCookies'),screenRecordingProtection:bool('screenProt')},appInfo:{appName:val('appName'),appSubtitle:val('appSubtitle'),version:val('version'),developer:val('developer'),supportEmail:val('supportEmail'),aboutUrl:val('aboutUrl'),privacyPolicyUrl:val('privacyPolicyUrl'),contactUrl:val('contactUrl'),termsOfServiceUrl:val('termsOfServiceUrl')},uiStrings:{settingsTitle:val('settingsTitle'),settingsSubtitle:val('settingsSubtitle'),navigationLabels:{home:val('navHome'),sections:val('navSections'),settings:val('navSettings'),favorites:val('navFavorites')},buttonLabels:{about:val('btnAbout'),privacy:val('btnPrivacy'),contact:val('btnContact')},loadingText:val('loadingText'),copyrightText:val('copyrightText')},featuresEnabled:{sectionsEnabled:document.getElementById('fSections').checked,favoritesEnabled:document.getElementById('fFavorites').checked,offlineStorageEnabled:document.getElementById('fOffline').checked,shareEnabled:document.getElementById('fShare').checked,notificationsEnabled:document.getElementById('fNotifications').checked,searchEnabled:document.getElementById('fSearch').checked,darkModeEnabled:document.getElementById('fDark').checked,compactModeEnabled:document.getElementById('fCompact').checked,themeSelectionEnabled:document.getElementById('fThemePicker').checked,splashScreenEnabled:document.getElementById('fSplash').checked,exitConfirmationEnabled:document.getElementById('fExitConfirm').checked},sections:sections.slice(),network:{internalNavigationEnabled:bool('internalNav'),bridgeRateLimitPerMinute:num('rateLimit'),bridgeReplayProtectionEnabled:bool('replayProt'),mixedContentMode:val('mixedContent')},ads:{enabled:val('adsEnabled')==='true',testMode:val('adsTest')==='true',gdprEnabled:val('gdprEnabled')==='true',adUnits:{appId:val('adAppId'),bannerId:val('adBannerId'),interstitialId:val('adInterId'),appOpenId:val('adOpenId')},bannerAds:{enabled:true,position:val('bannerPos'),size:val('bannerSize'),refreshInterval:num('bannerRefresh')},interstitialAds:{enabled:true,showOnAppStart:false,showOnPageLoad:false,showInterval:num('interInterval'),maxPerSession:num('interMax')},appOpenAds:{enabled:true,showOnColdStart:val('openCold')==='true',showOnWarmStart:val('openWarm')==='true',timeout:num('openTimeout')},privacy:{consentRequired:true,debugGeography:"EEA",testDeviceIds:[]}}}}
-document.getElementById('wizardGenerate').onclick=()=>{const cfg=buildConfig();document.getElementById('jsonText').value=JSON.stringify(cfg,null,2);setStatus('Generated JSON from wizard')};
+
+  <!-- 3. تعديل JSON يدوياً + تصدير -->
+  <div class="card">
+    <h2>تعديل الإعدادات يدوياً</h2>
+    <div class="section">
+      <div class="field">
+        <label>الكود JSON الكامل</label>
+        <textarea id="jsonText" class="textarea" spellcheck="false"></textarea>
+      </div>
+      <div class="actions">
+        <button class="btn success" id="validateBtn">التحقق من الصحة</button>
+        <button class="btn primary" id="syncWizardBtn">مزامنة الواجهة من JSON</button>
+        <button class="btn" id="copyBtn">نسخ</button>
+        <button class="btn" id="downloadBtn">تحميل remote_config.json</button>
+      </div>
+      <div class="status" id="status">جاهز...</div>
+    </div>
+  </div>
+
+  <!-- 4. النشر -->
+  <div class="card">
+    <h2>نشر الإعدادات</h2>
+
+    <div class="section grid">
+      <div class="field"><label>اسم المالك (GitHub username)</label><input id="ghOwner" placeholder="your-username"></div>
+      <div class="field"><label>اسم المستودع</label><input id="ghRepo" placeholder="your-repo"></div>
+      <div class="field"><label>الفرع (branch)</label><input id="ghBranch" value="main"></div>
+      <div class="field"><label>مسار الملف داخل المستودع</label><input id="ghPath" value="remote_config.json"></div>
+      <div class="field"><label>رسالة الـ commit</label><input id="ghMsg" value="تحديث remote_config.json"></div>
+      <div class="field"><label>توكن GitHub (Personal Access Token)</label><input id="ghToken" type="password" placeholder="ghp_xxxxxxxxxxxxxxxx"></div>
+    </div>
+
+    <div class="section actions">
+      <button class="btn primary" id="publishBtn">نشر على GitHub</button>
+      <button class="btn warn" id="rawBtn">إنشاء رابط Raw</button>
+    </div>
+
+    <div class="section grid" style="margin-top:32px">
+      <div class="field"><label>Presigned PUT URL (S3 / Cloudflare R2 / ...)</label><input id="presignedUrl" placeholder="https://bucket.../remote_config.json?X-Amz-..."></div>
+      <div class="field"><label>رابط النهاية العام (POST)</label><input id="endpointUrl" placeholder="https://api.example.com/config"></div>
+      <div class="field"><label>توكن المصادقة (Bearer)</label><input id="endpointToken" placeholder="your-secret-token"></div>
+    </div>
+
+    <div class="section actions">
+      <button class="btn primary" id="putPresignedBtn">نشر عبر Presigned PUT</button>
+      <button class="btn primary" id="postEndpointBtn">نشر عبر POST</button>
+    </div>
+  </div>
+
+</div>
+
 <script>
-(function(){
-  function getEl(id){return document.getElementById(id)}
-  function setVal(id,v){const el=getEl(id); if(el) el.value = v ?? ''}
-  function setSel(id,v){const el=getEl(id); if(el) el.value = (v===undefined||v===null)? el.value : String(v)}
-  function setChk(id,flag){const el=getEl(id); if(el) el.checked = !!flag}
-  function populateWizardFromJson(cfg){
-    try{
-      setVal('websiteUrl', cfg.websiteUrl)
-      setVal('websiteName', cfg.websiteName)
-      setVal('homepageUrl', cfg.homepageUrl)
-      const origins = (cfg.security && Array.isArray(cfg.security.allowedOrigins)) ? cfg.security.allowedOrigins.join(', ') : ''
-      setVal('allowedOrigins', origins)
-      const ai = cfg.appInfo || {}
-      setVal('appName', ai.appName); setVal('appSubtitle', ai.appSubtitle); setVal('version', ai.version)
-      setVal('developer', ai.developer); setVal('supportEmail', ai.supportEmail)
-      setVal('aboutUrl', ai.aboutUrl); setVal('privacyPolicyUrl', ai.privacyPolicyUrl)
-      setVal('contactUrl', ai.contactUrl); setVal('termsOfServiceUrl', ai.termsOfServiceUrl)
-      const ui = cfg.uiStrings || {}
-      setVal('settingsTitle', ui.settingsTitle); setVal('settingsSubtitle', ui.settingsSubtitle)
-      const nav = (ui.navigationLabels||{})
-      setVal('navHome', nav.home); setVal('navSections', nav.sections); setVal('navSettings', nav.settings); setVal('navFavorites', nav.favorites)
-      const btn = (ui.buttonLabels||{})
-      setVal('btnAbout', btn.about); setVal('btnPrivacy', btn.privacy); setVal('btnContact', btn.contact)
-      setVal('loadingText', ui.loadingText); setVal('copyrightText', ui.copyrightText)
-      const f = cfg.featuresEnabled || {}
-      setChk('fSections', f.sectionsEnabled); setChk('fFavorites', f.favoritesEnabled); setChk('fOffline', f.offlineStorageEnabled)
-      setChk('fShare', f.shareEnabled); setChk('fNotifications', f.notificationsEnabled); setChk('fSearch', f.searchEnabled)
-      setChk('fDark', f.darkModeEnabled); setChk('fCompact', f.compactModeEnabled); setChk('fThemePicker', f.themeSelectionEnabled)
-      setChk('fSplash', f.splashScreenEnabled); setChk('fExitConfirm', f.exitConfirmationEnabled)
-      const net = cfg.network || {}
-      setSel('internalNav', String(!!net.internalNavigationEnabled)); setVal('rateLimit', net.bridgeRateLimitPerMinute ?? 30)
-      setSel('replayProt', String(!!net.bridgeReplayProtectionEnabled)); setSel('mixedContent', net.mixedContentMode ?? 'compatibility')
-      const sec = cfg.security || {}
-      setSel('certPin', String(!!sec.certPinningEnabled)); setSel('strictMixed', String(!!sec.strictMixedContentEnabled))
-      setSel('thirdCookies', String(!!sec.acceptThirdPartyCookies)); setSel('screenProt', String(!!sec.screenRecordingProtection))
-      setSel('allowSubdomains', String(!!sec.allowSubdomains))
-      const ads = cfg.ads || {}
-      setSel('adsEnabled', String(!!ads.enabled)); setSel('adsTest', String(!!ads.testMode)); setSel('gdprEnabled', String(!!ads.gdprEnabled))
-      const au = ads.adUnits||{}
-      setVal('adAppId', au.appId); setVal('adBannerId', au.bannerId); setVal('adInterId', au.interstitialId); setVal('adOpenId', au.appOpenId)
-      const ba = ads.bannerAds||{}
-      setSel('bannerPos', ba.position ?? 'bottom'); setSel('bannerSize', ba.size ?? 'adaptive'); setVal('bannerRefresh', ba.refreshInterval ?? 60)
-      const ia = ads.interstitialAds||{}
-      setVal('interInterval', ia.showInterval ?? 300); setVal('interMax', ia.maxPerSession ?? 5)
-      const ao = ads.appOpenAds||{}
-      setSel('openCold', String(!!ao.showOnColdStart)); setSel('openWarm', String(!!ao.showOnWarmStart)); setVal('openTimeout', ao.timeout ?? 4000)
-      // sections
-      if (Array.isArray(cfg.sections)) {
-        while (sections.length) sections.pop()
-        cfg.sections.forEach(s => sections.push({
+// ──────────────────────────────────────────────
+// متغيرات عامة
+// ──────────────────────────────────────────────
+const statusEl = document.getElementById('status');
+const sections = [];
+
+function setStatus(msg, isError = false) {
+  statusEl.textContent = msg;
+  statusEl.style.color = isError ? '#f87171' : '#94a3b8';
+}
+
+// ──────────────────────────────────────────────
+// دوال مساعدة لقراءة القيم
+// ──────────────────────────────────────────────
+function val(id)   { return document.getElementById(id)?.value?.trim() ?? '' }
+function bool(id)  { return document.getElementById(id)?.value === 'true' }
+function num(id)   { return parseInt(document.getElementById(id)?.value, 10) || 0 }
+function checked(id){ return !!document.getElementById(id)?.checked }
+
+// ──────────────────────────────────────────────
+// بناء الكائن الكامل من الواجهة
+// ──────────────────────────────────────────────
+function buildConfig() {
+  const origins = val('allowedOrigins').split(',').map(x => x.trim()).filter(Boolean);
+
+  return {
+    websiteUrl: val('websiteUrl'),
+    websiteName: val('websiteName'),
+    homepageUrl: val('homepageUrl'),
+    security: {
+      allowedOrigins: origins,
+      allowSubdomains: bool('allowSubdomains'),
+      certPinningEnabled: bool('certPin'),
+      strictMixedContentEnabled: bool('strictMixed'),
+      acceptThirdPartyCookies: bool('thirdCookies'),
+      screenRecordingProtection: bool('screenProt')
+    },
+    appInfo: {
+      appName: val('appName'),
+      appSubtitle: val('appSubtitle'),
+      version: val('version'),
+      developer: val('developer'),
+      supportEmail: val('supportEmail'),
+      aboutUrl: val('aboutUrl'),
+      privacyPolicyUrl: val('privacyPolicyUrl'),
+      contactUrl: val('contactUrl'),
+      termsOfServiceUrl: val('termsOfServiceUrl')
+    },
+    uiStrings: {
+      settingsTitle: val('settingsTitle'),
+      settingsSubtitle: val('settingsSubtitle'),
+      navigationLabels: {
+        home: val('navHome'),
+        sections: val('navSections'),
+        settings: val('navSettings'),
+        favorites: val('navFavorites')
+      },
+      buttonLabels: {
+        about: val('btnAbout'),
+        privacy: val('btnPrivacy'),
+        contact: val('btnContact')
+      },
+      loadingText: val('loadingText'),
+      copyrightText: val('copyrightText')
+    },
+    featuresEnabled: {
+      sectionsEnabled: checked('fSections'),
+      favoritesEnabled: checked('fFavorites'),
+      offlineStorageEnabled: checked('fOffline'),
+      shareEnabled: checked('fShare'),
+      notificationsEnabled: checked('fNotifications'),
+      searchEnabled: checked('fSearch'),
+      darkModeEnabled: checked('fDark'),
+      compactModeEnabled: checked('fCompact'),
+      themeSelectionEnabled: checked('fThemePicker'),
+      splashScreenEnabled: checked('fSplash'),
+      exitConfirmationEnabled: checked('fExitConfirm')
+    },
+    sections: sections.slice(),
+    network: {
+      internalNavigationEnabled: bool('internalNav'),
+      bridgeRateLimitPerMinute: num('rateLimit'),
+      bridgeReplayProtectionEnabled: bool('replayProt'),
+      mixedContentMode: val('mixedContent')
+    },
+    ads: {
+      enabled: bool('adsEnabled'),
+      testMode: bool('adsTest'),
+      gdprEnabled: bool('gdprEnabled'),
+      adUnits: {
+        appId: val('adAppId'),
+        bannerId: val('adBannerId'),
+        interstitialId: val('adInterId'),
+        appOpenId: val('adOpenId')
+      },
+      bannerAds: {
+        enabled: true,
+        position: val('bannerPos'),
+        size: val('bannerSize'),
+        refreshInterval: num('bannerRefresh')
+      },
+      interstitialAds: {
+        enabled: true,
+        showOnAppStart: false,
+        showOnPageLoad: false,
+        showInterval: num('interInterval'),
+        maxPerSession: num('interMax')
+      },
+      appOpenAds: {
+        enabled: true,
+        showOnColdStart: bool('openCold'),
+        showOnWarmStart: bool('openWarm'),
+        timeout: num('openTimeout')
+      },
+      privacy: {
+        consentRequired: true,
+        debugGeography: "EEA",
+        testDeviceIds: []
+      }
+    }
+  };
+}
+
+// ──────────────────────────────────────────────
+// عرض الأقسام في الواجهة
+// ──────────────────────────────────────────────
+function renderSections() {
+  const list = document.getElementById('sectionsList');
+  list.innerHTML = '';
+
+  sections.forEach((sec, i) => {
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.style.marginBottom = '16px';
+    row.innerHTML = `
+      <div class="field"><label>الاسم</label><input value="${sec.name}" data-i="${i}" data-k="name"></div>
+      <div class="field"><label>الرابط</label><input value="${sec.url}"  data-i="${i}" data-k="url"></div>
+      <div class="field"><label>الأيقونة</label><input value="${sec.icon}" data-i="${i}" data-k="icon"></div>
+      <div class="field"><label>اللون</label><input value="${sec.color}" data-i="${i}" data-k="color" type="color"></div>
+      <div class="field"><label>مفعل</label><select data-i="${i}" data-k="enabled">
+        <option ${sec.enabled ? 'selected' : ''} value="true">نعم</option>
+        <option ${!sec.enabled ? 'selected' : ''} value="false">لا</option>
+      </select></div>
+      <button class="btn danger" data-del="${i}">حذف</button>
+    `;
+    list.appendChild(row);
+  });
+
+  // تعديل القيم
+  list.querySelectorAll('input,select').forEach(el => {
+    el.onchange = e => {
+      const i = parseInt(e.target.dataset.i, 10);
+      const k = e.target.dataset.k;
+      let v = e.target.value;
+      if (k === 'enabled') v = v === 'true';
+      sections[i][k] = v;
+    };
+  });
+
+  // حذف
+  list.querySelectorAll('[data-del]').forEach(btn => {
+    btn.onclick = () => {
+      const i = parseInt(btn.dataset.del, 10);
+      sections.splice(i, 1);
+      renderSections();
+    };
+  });
+}
+
+// ──────────────────────────────────────────────
+// التحقق من الحقول المطلوبة
+// ──────────────────────────────────────────────
+function getMissingFields(cfg) {
+  const missing = [];
+
+  if (!cfg.websiteUrl) missing.push("websiteUrl");
+  if (!cfg.websiteName) missing.push("websiteName");
+  if (!cfg.homepageUrl) missing.push("homepageUrl");
+  if (!cfg.security?.allowedOrigins?.length) missing.push("security.allowedOrigins (يجب وجود رابط واحد على الأقل)");
+
+  const ai = cfg.appInfo || {};
+  if (!ai.appName)     missing.push("appInfo.appName");
+  if (!ai.version)     missing.push("appInfo.version");
+  if (!ai.developer)   missing.push("appInfo.developer");
+
+  const au = (cfg.ads?.adUnits) || {};
+  if (cfg.ads?.enabled) {
+    if (!au.appId)          missing.push("ads.adUnits.appId");
+    if (!au.bannerId)       missing.push("ads.adUnits.bannerId");
+    if (!au.interstitialId) missing.push("ads.adUnits.interstitialId");
+    if (!au.appOpenId)      missing.push("ads.adUnits.appOpenId");
+  }
+
+  if (!cfg.sections?.length) missing.push("sections → يجب إضافة قسم واحد على الأقل");
+
+  return missing;
+}
+
+// ──────────────────────────────────────────────
+// ملء الواجهة من كائن JSON
+// ──────────────────────────────────────────────
+function populateWizard(cfg) {
+  try {
+    // Basic
+    document.getElementById('websiteUrl').value     = cfg.websiteUrl     || '';
+    document.getElementById('websiteName').value    = cfg.websiteName    || '';
+    document.getElementById('homepageUrl').value    = cfg.homepageUrl    || '';
+    document.getElementById('allowedOrigins').value = (cfg.security?.allowedOrigins || []).join(', ');
+
+    // App Info
+    const ai = cfg.appInfo || {};
+    document.getElementById('appName').value        = ai.appName        || '';
+    document.getElementById('appSubtitle').value    = ai.appSubtitle    || '';
+    document.getElementById('version').value        = ai.version        || '';
+    document.getElementById('developer').value      = ai.developer      || '';
+    document.getElementById('supportEmail').value   = ai.supportEmail   || '';
+    document.getElementById('aboutUrl').value       = ai.aboutUrl       || '';
+    document.getElementById('privacyPolicyUrl').value = ai.privacyPolicyUrl || '';
+    document.getElementById('contactUrl').value     = ai.contactUrl     || '';
+    document.getElementById('termsOfServiceUrl').value = ai.termsOfServiceUrl || '';
+
+    // UI Strings
+    const ui = cfg.uiStrings || {};
+    document.getElementById('settingsTitle').value  = ui.settingsTitle  || 'الإعدادات';
+    document.getElementById('settingsSubtitle').value = ui.settingsSubtitle || 'خصص تجربتك';
+    document.getElementById('loadingText').value    = ui.loadingText    || 'جاري التحميل...';
+    document.getElementById('copyrightText').value  = ui.copyrightText  || '© 2026';
+
+    const nav = ui.navigationLabels || {};
+    document.getElementById('navHome').value     = nav.home     || 'الرئيسية';
+    document.getElementById('navSections').value = nav.sections || 'الأقسام';
+    document.getElementById('navSettings').value = nav.settings || 'الإعدادات';
+    document.getElementById('navFavorites').value= nav.favorites|| 'المفضلة';
+
+    const btn = ui.buttonLabels || {};
+    document.getElementById('btnAbout').value    = btn.about    || 'عن التطبيق';
+    document.getElementById('btnPrivacy').value  = btn.privacy  || 'سياسة الخصوصية';
+    document.getElementById('btnContact').value  = btn.contact  || 'تواصل معنا';
+
+    // Features
+    const f = cfg.featuresEnabled || {};
+    document.getElementById('fSections').checked     = !!f.sectionsEnabled;
+    document.getElementById('fFavorites').checked    = !!f.favoritesEnabled;
+    document.getElementById('fOffline').checked      = !!f.offlineStorageEnabled;
+    document.getElementById('fShare').checked        = !!f.shareEnabled;
+    document.getElementById('fNotifications').checked= !!f.notificationsEnabled;
+    document.getElementById('fSearch').checked       = !!f.searchEnabled;
+    document.getElementById('fDark').checked         = !!f.darkModeEnabled;
+    document.getElementById('fCompact').checked      = !!f.compactModeEnabled;
+    document.getElementById('fThemePicker').checked  = !!f.themeSelectionEnabled;
+    document.getElementById('fSplash').checked       = !!f.splashScreenEnabled;
+    document.getElementById('fExitConfirm').checked  = !!f.exitConfirmationEnabled;
+
+    // Network & Security
+    const net = cfg.network || {};
+    document.getElementById('internalNav').value = net.internalNavigationEnabled ? 'true' : 'false';
+    document.getElementById('rateLimit').value   = net.bridgeRateLimitPerMinute ?? 30;
+    document.getElementById('replayProt').value  = net.bridgeReplayProtectionEnabled ? 'true' : 'false';
+    document.getElementById('mixedContent').value= net.mixedContentMode || 'compatibility';
+
+    const sec = cfg.security || {};
+    document.getElementById('certPin').value      = sec.certPinningEnabled ? 'true' : 'false';
+    document.getElementById('strictMixed').value  = sec.strictMixedContentEnabled ? 'true' : 'false';
+    document.getElementById('thirdCookies').value = sec.acceptThirdPartyCookies ? 'true' : 'false';
+    document.getElementById('screenProt').value   = sec.screenRecordingProtection ? 'true' : 'false';
+    document.getElementById('allowSubdomains').value = sec.allowSubdomains ? 'true' : 'false';
+
+    // Ads
+    const ads = cfg.ads || {};
+    document.getElementById('adsEnabled').value = ads.enabled ? 'true' : 'false';
+    document.getElementById('adsTest').value    = ads.testMode  ? 'true' : 'false';
+    document.getElementById('gdprEnabled').value= ads.gdprEnabled ? 'true' : 'false';
+
+    const au = ads.adUnits || {};
+    document.getElementById('adAppId').value     = au.appId     || '';
+    document.getElementById('adBannerId').value  = au.bannerId  || '';
+    document.getElementById('adInterId').value   = au.interstitialId || '';
+    document.getElementById('adOpenId').value    = au.appOpenId || '';
+
+    const ba = ads.bannerAds || {};
+    document.getElementById('bannerPos').value    = ba.position || 'bottom';
+    document.getElementById('bannerSize').value   = ba.size     || 'adaptive';
+    document.getElementById('bannerRefresh').value= ba.refreshInterval ?? 60;
+
+    const ia = ads.interstitialAds || {};
+    document.getElementById('interInterval').value= ia.showInterval ?? 300;
+    document.getElementById('interMax').value     = ia.maxPerSession ?? 5;
+
+    const ao = ads.appOpenAds || {};
+    document.getElementById('openCold').value  = ao.showOnColdStart ? 'true' : 'false';
+    document.getElementById('openWarm').value  = ao.showOnWarmStart ? 'true' : 'false';
+    document.getElementById('openTimeout').value = ao.timeout ?? 4000;
+
+    // Sections
+    sections.length = 0;
+    if (Array.isArray(cfg.sections)) {
+      cfg.sections.forEach(s => {
+        sections.push({
           name: s.name || '',
           url: s.url || '',
           icon: s.icon || '',
-          color: s.color || '',
+          color: s.color || '#64748b',
           enabled: !!s.enabled
-        }))
-        renderSections()
-      }
-      setStatus('Wizard populated from JSON')
-    }catch(e){ setStatus('Populate failed: '+e.message) }
-  }
-  function requiredList(cfg){
-    const missing=[]
-    function need(path,cond=true){ if(!cond){ missing.push(path) } }
-    need('websiteUrl', !!cfg.websiteUrl)
-    need('websiteName', !!cfg.websiteName)
-    need('homepageUrl', !!cfg.homepageUrl)
-    const originsOk = cfg.security && Array.isArray(cfg.security.allowedOrigins) && cfg.security.allowedOrigins.length>0
-    need('security.allowedOrigins[0]', originsOk)
-    const ai = cfg.appInfo||{}
-    need('appInfo.appName', !!ai.appName)
-    need('appInfo.version', !!ai.version)
-    need('appInfo.developer', !!ai.developer)
-    const au = (cfg.ads && cfg.ads.adUnits) || {}
-    need('ads.adUnits.appId', !!au.appId)
-    need('ads.adUnits.bannerId', !!au.bannerId)
-    need('ads.adUnits.interstitialId', !!au.interstitialId)
-    need('ads.adUnits.appOpenId', !!au.appOpenId)
-    const secsOk = Array.isArray(cfg.sections) && cfg.sections.length>=1
-    need('sections[0].name/url', secsOk)
-    return missing
-  }
-  function parseCurrent(){
-    try{ return JSON.parse(getEl('jsonText').value) } catch(e){ return null }
-  }
-  const loadBtn = getEl('loadBtn'); if (loadBtn) {
-    const orig = loadBtn.onclick
-    loadBtn.onclick = async () => {
-      await orig?.call(loadBtn)
-      const obj = parseCurrent(); if (obj) populateWizardFromJson(obj)
+        });
+      });
     }
+    renderSections();
+
+    setStatus('تم ملء الواجهة من الـ JSON بنجاح');
+  } catch (e) {
+    setStatus('خطأ أثناء ملء الواجهة: ' + e.message, true);
   }
-  const fileInput = getEl('fileInput'); if (fileInput) {
-    const origChange = fileInput.onchange
-    fileInput.onchange = async (e) => {
-      await origChange?.call(fileInput, e)
-      const obj = parseCurrent(); if (obj) populateWizardFromJson(obj)
-    }
+}
+
+// ──────────────────────────────────────────────
+// الأحداث
+// ──────────────────────────────────────────────
+
+// تحميل من رابط
+document.getElementById('loadBtn').onclick = async () => {
+  const url = val('remoteUrl');
+  if (!url || !url.startsWith('https://')) {
+    setStatus('أدخل رابط HTTPS صحيح', true);
+    return;
   }
-  ;['publishBtn','putPresignedBtn','postEndpointBtn','downloadBtn'].forEach(id=>{
-    const el = getEl(id); if (!el) return
-    const orig = el.onclick
-    el.onclick = async ()=> {
-      const obj = parseCurrent()
-      if (!obj) { setStatus('Invalid JSON. Fix before proceeding.'); return }
-      const miss = requiredList(obj)
-      if (miss.length>0) { setStatus('Missing required fields: '+miss.join(', ')); return }
-      await orig?.call(el)
-    }
-  })
-  const wizardGenerate = getEl('wizardGenerate'); if (wizardGenerate) {
-    const orig = wizardGenerate.onclick
-    wizardGenerate.onclick = ()=> {
-      orig?.call(wizardGenerate)
-      const obj = parseCurrent()
-      if (obj) {
-        const miss = requiredList(obj)
-        if (miss.length>0) setStatus('Generated JSON. Missing: '+miss.join(', '))
-      }
-    }
+  try {
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    document.getElementById('jsonText').value = JSON.stringify(data, null, 2);
+    populateWizard(data);
+    setStatus('تم التحميل والمزامنة بنجاح');
+  } catch (e) {
+    setStatus('فشل التحميل: ' + e.message, true);
   }
-  const syncWizardBtn = getEl('syncWizardBtn'); if (syncWizardBtn) {
-    syncWizardBtn.onclick = ()=>{
-      const obj = parseCurrent()
-      if (!obj) { setStatus('Invalid JSON. Fix before syncing.'); return }
-      populateWizardFromJson(obj)
-      const miss = requiredList(obj)
-      if (miss.length>0) setStatus('Missing required fields: '+miss.join(', '))
-      else setStatus('Wizard synced from JSON')
-    }
+};
+
+// تحميل من ملف
+document.getElementById('fileInput').onchange = async e => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+  try {
+    const text = await file.text();
+    const obj = JSON.parse(text);
+    document.getElementById('jsonText').value = text;
+    populateWizard(obj);
+    setStatus('تم تحميل الملف وملء الواجهة');
+  } catch (err) {
+    setStatus('ملف JSON غير صالح: ' + err.message, true);
   }
-})();
-</script></body></html>
+};
+
+// إنشاء JSON من الواجهة
+document.getElementById('wizardGenerate').onclick = () => {
+  const cfg = buildConfig();
+  document.getElementById('jsonText').value = JSON.stringify(cfg, null, 2);
+  const missing = getMissingFields(cfg);
+  if (missing.length) {
+    setStatus('تم إنشاء JSON لكن ينقص: ' + missing.join(' • '), true);
+  } else {
+    setStatus('تم إنشاء JSON كامل وصحيح');
+  }
+};
+
+// مزامنة الواجهة من JSON
+document.getElementById('syncWizardBtn').onclick = () => {
+  try {
+    const obj = JSON.parse(document.getElementById('jsonText').value);
+    populateWizard(obj);
+  } catch (e) {
+    setStatus('JSON غير صالح: ' + e.message, true);
+  }
+};
+
+// التحقق
+document.getElementById('validateBtn').onclick = () => {
+  try {
+    JSON.parse(document.getElementById('jsonText').value);
+    setStatus('الـ JSON صحيح');
+  } catch (e) {
+    setStatus('خطأ في الـ JSON: ' + e.message, true);
+  }
+};
+
+// نسخ
+document.getElementById('copyBtn').onclick = async () => {
+  try {
+    await navigator.clipboard.writeText(document.getElementById('jsonText').value);
+    setStatus('تم النسخ إلى الحافظة');
+  } catch {
+    setStatus('فشل النسخ', true);
+  }
+};
+
+// تحميل
+document.getElementById('downloadBtn').onclick = () => {
+  try {
+    const blob = new Blob([document.getElementById('jsonText').value], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'remote_config.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    setStatus('تم التحميل');
+  } catch (e) {
+    setStatus('فشل التحميل: ' + e.message, true);
+  }
+};
+
+// إضافة قسم
+document.getElementById('addSection').onclick = () => {
+  const name = val('secName');
+  const url  = val('secUrl');
+  if (!name || !url) {
+    setStatus('الاسم والرابط مطلوبان للقسم', true);
+    return;
+  }
+  sections.push({
+    name,
+    url,
+    icon: val('secIcon'),
+    color: val('secColor') || '#64748b',
+    enabled: bool('secEnabled')
+  });
+  renderSections();
+  // تنظيف الحقول
+  ['secName','secUrl','secIcon','secColor'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('secEnabled').value = 'true';
+};
+
+// النشر على GitHub
+document.getElementById('publishBtn').onclick = async () => {
+  const json = document.getElementById('jsonText').value;
+  let cfg;
+  try { cfg = JSON.parse(json); } catch(e) {
+    setStatus('JSON غير صالح قبل النشر', true);
+    return;
+  }
+
+  const missing = getMissingFields(cfg);
+  if (missing.length) {
+    setStatus('لا يمكن النشر – ينقص: ' + missing.join(' • '), true);
+    return;
+  }
+
+  const owner = val('ghOwner');
+  const repo  = val('ghRepo');
+  const branch= val('ghBranch') || 'main';
+  const path  = val('ghPath') || 'remote_config.json';
+  const msg   = val('ghMsg')  || 'تحديث remote_config.json';
+  const token = val('ghToken');
+
+  if (!owner || !repo || !token) {
+    setStatus('املأ بيانات GitHub (owner/repo/token)', true);
+    return;
+  }
+
+  try {
+    const content = btoa(unescape(encodeURIComponent(json)));
+
+    // الحصول على SHA إذا وجد
+    let sha = null;
+    const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path)}?ref=${encodeURIComponent(branch)}`;
+    const getRes = await fetch(getUrl, {
+      headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' }
+    });
+    if (getRes.ok) {
+      const data = await getRes.json();
+      sha = data.sha;
+    } else if (getRes.status !== 404) {
+      throw new Error('فشل جلب SHA: ' + getRes.status);
+    }
+
+    const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path)}`;
+    const body = { message: msg, content, branch };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(putUrl, {
+      method: 'PUT',
+      headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' },
+      body: JSON.stringify(body)
+    });
+
+    if (!putRes.ok) throw new Error('فشل النشر: ' + putRes.status);
+
+    const result = await putRes.json();
+    setStatus('تم النشر على GitHub → commit: ' + (result.commit?.sha?.substring(0,7) || 'ok'));
+  } catch (err) {
+    setStatus('خطأ أثناء النشر: ' + err.message, true);
+  }
+};
+
+// رابط Raw
+document.getElementById('rawBtn').onclick = () => {
+  const owner = val('ghOwner');
+  const repo  = val('ghRepo');
+  const branch= val('ghBranch') || 'main';
+  const path  = val('ghPath') || 'remote_config.json';
+
+  if (!owner || !repo || !path) {
+    setStatus('املأ owner/repo/path أولاً', true);
+    return;
+  }
+
+  const raw = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;
+  navigator.clipboard.writeText(raw).then(() => {
+    setStatus('تم نسخ رابط Raw: ' + raw);
+  }).catch(() => {
+    setStatus('رابط Raw: ' + raw);
+  });
+};
+
+// Presigned PUT
+document.getElementById('putPresignedBtn').onclick = async () => {
+  const url = val('presignedUrl');
+  if (!url || !url.startsWith('https://')) {
+    setStatus('أدخل Presigned URL صحيح', true);
+    return;
+  }
+  const json = document.getElementById('jsonText').value;
+  try { JSON.parse(json); } catch(e) {
+    setStatus('JSON غير صالح', true);
+    return;
+  }
+  try {
+    const res = await fetch(url, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: json
+    });
+    if (res.ok) setStatus('تم الرفع عبر Presigned PUT');
+    else setStatus('فشل الرفع: ' + res.status, true);
+  } catch (e) {
+    setStatus('خطأ: ' + e.message, true);
+  }
+};
+
+// POST Endpoint
+document.getElementById('postEndpointBtn').onclick = async () => {
+  const url = val('endpointUrl');
+  const token = val('endpointToken');
+  if (!url || !url.startsWith('https://')) {
+    setStatus('أدخل رابط النهاية الصحيح', true);
+    return;
+  }
+  const json = document.getElementById('jsonText').value;
+  let obj;
+  try { obj = JSON.parse(json); } catch(e) {
+    setStatus('JSON غير صالح', true);
+    return;
+  }
+  try {
+    const headers = { 'Content-Type': 'application/json' };
+    if (token) headers.Authorization = `Bearer ${token}`;
+
+    const res = await fetch(url, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(obj)
+    });
+    if (res.ok) setStatus('تم النشر عبر POST');
+    else setStatus('فشل النشر: ' + res.status, true);
+  } catch (e) {
+    setStatus('خطأ: ' + e.message, true);
+  }
+};
+
+</script>
+</body>
+</html>
