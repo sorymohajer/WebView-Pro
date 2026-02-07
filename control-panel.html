@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WebControl X – Admin Control Panel</title><style>body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#0f172a;margin:0}.wrap{max-width:1100px;margin:0 auto;padding:24px}.card{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.2);margin-bottom:20px;overflow:hidden}.card h2{margin:0;padding:18px 20px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:18px}.section{padding:18px 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:12px;color:#334155}.field input,.field textarea,.field select{border:1px solid #e5e7eb;border-radius:10px;padding:10px 12px;font-size:14px;outline:none}.row{display:flex;gap:10px;flex-wrap:wrap}.btn{background:#1f2937;color:#fff;border:none;border-radius:12px;padding:10px 16px;font-weight:600;cursor:pointer}.btn.primary{background:#4f46e5}.btn.success{background:#16a34a}.btn.warn{background:#f59e0b}.btn.danger{background:#dc2626}.status{background:#0b1220;color:#e2e8f0;border-radius:12px;padding:12px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px}.note{font-size:12px;color:#64748b}.pill{display:inline-block;background:#f1f5f9;color:#0f172a;border-radius:999px;padding:6px 10px;font-size:12px;margin-right:8px}.actions{display:flex;gap:10px;flex-wrap:wrap}.textarea{min-height:200px}</style></head><body><div class="wrap">
+  <div class="card"><h2>Load / Import</h2><div class="section grid"><div class="field"><label>Remote JSON URL (HTTPS)</label><input id="remoteUrl" placeholder="https://example.com/remote_config.json"></div><div class="field"><label>Import from device</label><input id="fileInput" type="file" accept="application/json"></div></div><div class="section actions"><button class="btn primary" id="loadBtn">Load</button><span class="pill">HTTPS required</span></div></div>
+  <div class="card"><h2>Config Wizard</h2><div class="section grid">
+    <div class="field"><label>Website URL</label><input id="websiteUrl" placeholder="https://your-website.com"></div>
+    <div class="field"><label>Website Name</label><input id="websiteName" placeholder="Your Website Name"></div>
+    <div class="field"><label>Homepage URL</label><input id="homepageUrl" placeholder="https://your-website.com/"></div>
+    <div class="field"><label>Allowed Origins (comma)</label><input id="allowedOrigins" placeholder="https://your-website.com, https://sub.your-website.com"></div>
+    <div class="field"><label>App Name</label><input id="appName" placeholder="My WebControl App"></div>
+    <div class="field"><label>Subtitle</label><input id="appSubtitle" placeholder="Modern WebView Platform"></div>
+    <div class="field"><label>Version</label><input id="version" placeholder="1.0.0"></div>
+    <div class="field"><label>Developer</label><input id="developer" placeholder="Your Company"></div>
+    <div class="field"><label>Support Email</label><input id="supportEmail" placeholder="support@example.com"></div>
+    <div class="field"><label>About URL</label><input id="aboutUrl" placeholder="https://your-website.com/p/about.html"></div>
+    <div class="field"><label>Privacy URL</label><input id="privacyPolicyUrl" placeholder="https://your-website.com/p/privacy.html"></div>
+    <div class="field"><label>Contact URL</label><input id="contactUrl" placeholder="https://your-website.com/p/contact.html"></div>
+    <div class="field"><label>Terms URL</label><input id="termsOfServiceUrl" placeholder="https://your-website.com/p/terms.html"></div>
+    <div class="field"><label>Settings Title</label><input id="settingsTitle" value="Settings"></div>
+    <div class="field"><label>Settings Subtitle</label><input id="settingsSubtitle" value="Customize your experience"></div>
+    <div class="field"><label>Loading Text</label><input id="loadingText" value="Loading..."></div>
+    <div class="field"><label>Copyright</label><input id="copyrightText" value="© 2026"></div>
+    <div class="field"><label>Nav Home</label><input id="navHome" value="Home"></div>
+    <div class="field"><label>Nav Sections</label><input id="navSections" value="Sections"></div>
+    <div class="field"><label>Nav Settings</label><input id="navSettings" value="Settings"></div>
+    <div class="field"><label>Nav Favorites</label><input id="navFavorites" value="Favorites"></div>
+    <div class="field"><label>Button About</label><input id="btnAbout" value="About App"></div>
+    <div class="field"><label>Button Privacy</label><input id="btnPrivacy" value="Privacy Policy"></div>
+    <div class="field"><label>Button Contact</label><input id="btnContact" value="Contact Us"></div>
+  </div>
+  <div class="section row">
+    <label class="pill"><input type="checkbox" id="fSections" checked> Sections</label>
+    <label class="pill"><input type="checkbox" id="fFavorites" checked> Favorites</label>
+    <label class="pill"><input type="checkbox" id="fOffline" checked> Offline</label>
+    <label class="pill"><input type="checkbox" id="fShare" checked> Share</label>
+    <label class="pill"><input type="checkbox" id="fNotifications" checked> Notifications</label>
+    <label class="pill"><input type="checkbox" id="fSearch"> Search</label>
+    <label class="pill"><input type="checkbox" id="fDark" checked> Dark Mode</label>
+    <label class="pill"><input type="checkbox" id="fCompact"> Compact</label>
+    <label class="pill"><input type="checkbox" id="fThemePicker"> Theme Picker</label>
+    <label class="pill"><input type="checkbox" id="fSplash" checked> Splash</label>
+    <label class="pill"><input type="checkbox" id="fExitConfirm" checked> Exit Confirm</label>
+  </div>
+  <div class="section grid">
+    <div class="field"><label>Internal Navigation</label><select id="internalNav"><option>true</option><option>false</option></select></div>
+    <div class="field"><label>Rate Limit/min</label><input id="rateLimit" type="number" value="30"></div>
+    <div class="field"><label>Replay Protection</label><select id="replayProt"><option>true</option><option>false</option></select></div>
+    <div class="field"><label>Mixed Content</label><select id="mixedContent"><option>compatibility</option><option>strict</option></select></div>
+    <div class="field"><label>Cert Pinning</label><select id="certPin"><option>true</option><option>false</option></select></div>
+    <div class="field"><label>Strict Mixed</label><select id="strictMixed"><option>true</option><option>false</option></select></div>
+    <div class="field"><label>3rd Party Cookies</label><select id="thirdCookies"><option>false</option><option>true</option></select></div>
+    <div class="field"><label>Screen Protect</label><select id="screenProt"><option>true</option><option>false</option></select></div>
+    <div class="field"><label>Allow Subdomains</label><select id="allowSubdomains"><option>true</option><option>false</option></select></div>
+  </div>
+  <div class="section grid">
+    <div class="field"><label>Ads Enabled</label><select id="adsEnabled"><option>true</option><option>false</option></select></div>
+    <div class="field"><label>Test Mode</label><select id="adsTest"><option>false</option><option>true</option></select></div>
+    <div class="field"><label>GDPR</label><select id="gdprEnabled"><option>true</option><option>false</option></select></div>
+    <div class="field"><label>App ID</label><input id="adAppId"></div>
+    <div class="field"><label>Banner ID</label><input id="adBannerId"></div>
+    <div class="field"><label>Interstitial ID</label><input id="adInterId"></div>
+    <div class="field"><label>App Open ID</label><input id="adOpenId"></div>
+    <div class="field"><label>Banner Position</label><select id="bannerPos"><option>bottom</option><option>top</option></select></div>
+    <div class="field"><label>Banner Size</label><select id="bannerSize"><option>adaptive</option><option>standard</option></select></div>
+    <div class="field"><label>Banner Refresh</label><input id="bannerRefresh" type="number" value="60"></div>
+    <div class="field"><label>Interstitial Interval</label><input id="interInterval" type="number" value="300"></div>
+    <div class="field"><label>Interstitial Max</label><input id="interMax" type="number" value="5"></div>
+    <div class="field"><label>App Open Cold</label><select id="openCold"><option>true</option><option>false</option></select></div>
+    <div class="field"><label>App Open Warm</label><select id="openWarm"><option>false</option><option>true</option></select></div>
+    <div class="field"><label>App Open Timeout</label><input id="openTimeout" type="number" value="4000"></div>
+  </div>
+  <div class="section">
+    <div class="row">
+      <div class="field"><label>Section Name</label><input id="secName"></div>
+      <div class="field"><label>URL</label><input id="secUrl" placeholder="/search/label/tech"></div>
+      <div class="field"><label>Icon</label><input id="secIcon" placeholder="article"></div>
+      <div class="field"><label>Color</label><input id="secColor" placeholder="#2196F3"></div>
+      <div class="field"><label>Enabled</label><select id="secEnabled"><option>true</option><option>false</option></select></div>
+    </div>
+    <div class="row actions"><button class="btn primary" id="addSection">Add Section</button><span class="pill">Icons: article, security, computer, phone_android, code</span></div>
+    <div id="sectionsList"></div>
+  </div>
+  <div class="section actions"><button class="btn success" id="wizardGenerate">Generate JSON</button></div>
+  </div>
+  <div class="card"><h2>Edit Configuration</h2><div class="section"><div class="field"><label>JSON</label><textarea id="jsonText" class="textarea" spellcheck="false"></textarea></div><div class="row actions"><button class="btn success" id="validateBtn">Validate JSON</button><button class="btn" id="syncWizardBtn">Sync From JSON</button><button class="btn" id="copyBtn">Copy</button><button class="btn" id="downloadBtn">Download remote_config.json</button></div><div class="status" id="status">Ready</div></div></div>
+  <div class="card"><h2>Publish to GitHub</h2><div class="section grid"><div class="field"><label>Owner</label><input id="ghOwner" placeholder="your-username"></div><div class="field"><label>Repository</label><input id="ghRepo" placeholder="your-repo"></div><div class="field"><label>Branch</label><input id="ghBranch" value="main"></div><div class="field"><label>Path in repo</label><input id="ghPath" value="WebView-Pro/remote_config.json"></div><div class="field"><label>Commit message</label><input id="ghMsg" value="Update remote_config.json"></div><div class="field"><label>GitHub Token</label><input id="ghToken" type="password" placeholder="ghp_..."></div></div><div class="section actions"><button class="btn primary" id="publishBtn">Publish</button><button class="btn warn" id="rawBtn">Generate Raw URL</button><span class="pill">Use serverless proxy in production</span></div></div>
+  <div class="card"><h2>Publish to Other Providers</h2><div class="section grid"><div class="field"><label>Presigned PUT URL (S3/R2)</label><input id="presignedUrl" placeholder="https://..."></div><div class="field"><label>Generic Endpoint URL</label><input id="endpointUrl" placeholder="https://api.example.com/config"></div><div class="field"><label>Bearer Token</label><input id="endpointToken" placeholder="token"></div></div><div class="section actions"><button class="btn primary" id="putPresignedBtn">Publish via Presigned PUT</button><button class="btn primary" id="postEndpointBtn">Publish via POST</button></div></div>
+</div><script>
+const statusEl=document.getElementById('status');function setStatus(s){statusEl.textContent=s}
+document.getElementById('loadBtn').onclick=async()=>{const url=document.getElementById('remoteUrl').value.trim();if(!url||!url.startsWith('https://')){setStatus('Enter a valid HTTPS URL');return}try{const r=await fetch(url,{cache:'no-store'});if(!r.ok){setStatus('Fetch failed: '+r.status);return}const data=await r.json();document.getElementById('jsonText').value=JSON.stringify(data,null,2);setStatus('Loaded JSON from remote')}catch(e){setStatus('Error: '+e.message)}};
+document.getElementById('fileInput').onchange=async(e)=>{const f=e.target.files&&e.target.files[0];if(!f)return;try{const txt=await f.text();JSON.parse(txt);document.getElementById('jsonText').value=txt;setStatus('Loaded JSON from device')}catch(err){setStatus('Invalid JSON file')}};
+document.getElementById('validateBtn').onclick=()=>{try{const obj=JSON.parse(document.getElementById('jsonText').value);if(typeof obj!=='object'||!obj){setStatus('Invalid: not an object');return}setStatus('Valid JSON')}catch(e){setStatus('Invalid JSON: '+e.message)}};
+document.getElementById('copyBtn').onclick=async()=>{try{await navigator.clipboard.writeText(document.getElementById('jsonText').value);setStatus('Copied to clipboard')}catch(e){setStatus('Copy failed')}};
+document.getElementById('downloadBtn').onclick=()=>{try{const blob=new Blob([document.getElementById('jsonText').value],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='remote_config.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);setStatus('Downloaded remote_config.json')}catch(e){setStatus('Download failed')}};
+async function getSha(owner,repo,branch,path,token){const url=`https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path)}?ref=${encodeURIComponent(branch)}`;const r=await fetch(url,{headers:{Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json'}});if(r.status===404)return null;if(!r.ok)throw new Error('Get SHA failed: '+r.status);const j=await r.json();return j.sha||null}
+document.getElementById('publishBtn').onclick=async()=>{const owner=document.getElementById('ghOwner').value.trim();const repo=document.getElementById('ghRepo').value.trim();const branch=document.getElementById('ghBranch').value.trim()||'main';const path=document.getElementById('ghPath').value.trim();const msg=document.getElementById('ghMsg').value.trim()||'Update remote_config.json';const token=document.getElementById('ghToken').value.trim();if(!owner||!repo||!path||!token){setStatus('Fill owner/repo/path/token');return}let jsonText=document.getElementById('jsonText').value;try{JSON.parse(jsonText)}catch(e){setStatus('Invalid JSON: '+e.message);return}const content=btoa(unescape(encodeURIComponent(jsonText)));try{const sha=await getSha(owner,repo,branch,path,token);const url=`https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path)}`;const body={message:msg,content,branch};if(sha)body.sha=sha;const r=await fetch(url,{method:'PUT',headers:{Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json'},body:JSON.stringify(body)});if(!r.ok){setStatus('Publish failed: '+r.status);return}const j=await r.json();setStatus('Published commit: '+(j.commit&&j.commit.sha?j.commit.sha.substring(0,7):'ok'))}catch(e){setStatus('Error: '+e.message)}};
+document.getElementById('rawBtn').onclick=()=>{const owner=document.getElementById('ghOwner').value.trim();const repo=document.getElementById('ghRepo').value.trim();const branch=document.getElementById('ghBranch').value.trim()||'main';const path=document.getElementById('ghPath').value.trim();if(!owner||!repo||!path){setStatus('Fill owner/repo/path');return}const raw=`https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;navigator.clipboard.writeText(raw).then(()=>setStatus('Raw URL copied: '+raw)).catch(()=>setStatus('Raw URL: '+raw))};
+document.getElementById('putPresignedBtn').onclick=async()=>{const url=document.getElementById('presignedUrl').value.trim();if(!url||!url.startsWith('https://')){setStatus('Enter presigned HTTPS URL');return}try{const txt=document.getElementById('jsonText').value;JSON.parse(txt);const r=await fetch(url,{method:'PUT',headers:{'Content-Type':'application/json'},body:txt});if(r.ok){setStatus('Uploaded via presigned PUT')}else{setStatus('Upload failed: '+r.status)}}catch(e){setStatus('Error: '+e.message)}};
+document.getElementById('postEndpointBtn').onclick=async()=>{const url=document.getElementById('endpointUrl').value.trim();const token=document.getElementById('endpointToken').value.trim();if(!url||!url.startsWith('https://')){setStatus('Enter endpoint HTTPS URL');return}try{const txt=document.getElementById('jsonText').value;const obj=JSON.parse(txt);const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json',...(token?{'Authorization':'Bearer '+token}:{})},body:JSON.stringify(obj)});if(r.ok){setStatus('Published to endpoint')}else{setStatus('Endpoint failed: '+r.status)}}catch(e){setStatus('Error: '+e.message)}};
+const sections=[];function renderSections(){const list=document.getElementById('sectionsList');list.innerHTML='';sections.forEach((s,i)=>{const el=document.createElement('div');el.className='row';el.innerHTML=`<div class="field"><label>Name</label><input value="${s.name}" data-i="${i}" data-k="name"></div><div class="field"><label>URL</label><input value="${s.url}" data-i="${i}" data-k="url"></div><div class="field"><label>Icon</label><input value="${s.icon}" data-i="${i}" data-k="icon"></div><div class="field"><label>Color</label><input value="${s.color}" data-i="${i}" data-k="color"></div><div class="field"><label>Enabled</label><select data-i="${i}" data-k="enabled"><option ${s.enabled?'selected':''}>true</option><option ${!s.enabled?'selected':''}>false</option></select></div><button class="btn danger" data-del="${i}">Remove</button>`;list.appendChild(el)});list.querySelectorAll('input,select').forEach(inp=>{inp.onchange=e=>{const i=parseInt(e.target.dataset.i,10);const k=e.target.dataset.k;let v=e.target.value;if(k==='enabled')v=v==='true';sections[i][k]=v}});list.querySelectorAll('button[data-del]').forEach(btn=>{btn.onclick=e=>{const i=parseInt(e.target.dataset.del,10);sections.splice(i,1);renderSections()}})}
+document.getElementById('addSection').onclick=()=>{const s={name:document.getElementById('secName').value.trim(),url:document.getElementById('secUrl').value.trim(),icon:document.getElementById('secIcon').value.trim(),color:document.getElementById('secColor').value.trim(),enabled:document.getElementById('secEnabled').value==='true'};if(!s.name||!s.url)return;sections.push(s);document.getElementById('secName').value='';document.getElementById('secUrl').value='';document.getElementById('secIcon').value='';document.getElementById('secColor').value='';renderSections()};
+function val(id){return document.getElementById(id).value}function bool(id){return document.getElementById(id).value==='true'}function num(id){return parseInt(document.getElementById(id).value,10)||0}
+function buildConfig(){const origins=val('allowedOrigins').split(',').map(x=>x.trim()).filter(Boolean);return{websiteUrl:val('websiteUrl'),websiteName:val('websiteName'),homepageUrl:val('homepageUrl'),security:{allowedOrigins:origins,allowSubdomains:bool('allowSubdomains'),certPinningEnabled:bool('certPin'),strictMixedContentEnabled:bool('strictMixed'),acceptThirdPartyCookies:bool('thirdCookies'),screenRecordingProtection:bool('screenProt')},appInfo:{appName:val('appName'),appSubtitle:val('appSubtitle'),version:val('version'),developer:val('developer'),supportEmail:val('supportEmail'),aboutUrl:val('aboutUrl'),privacyPolicyUrl:val('privacyPolicyUrl'),contactUrl:val('contactUrl'),termsOfServiceUrl:val('termsOfServiceUrl')},uiStrings:{settingsTitle:val('settingsTitle'),settingsSubtitle:val('settingsSubtitle'),navigationLabels:{home:val('navHome'),sections:val('navSections'),settings:val('navSettings'),favorites:val('navFavorites')},buttonLabels:{about:val('btnAbout'),privacy:val('btnPrivacy'),contact:val('btnContact')},loadingText:val('loadingText'),copyrightText:val('copyrightText')},featuresEnabled:{sectionsEnabled:document.getElementById('fSections').checked,favoritesEnabled:document.getElementById('fFavorites').checked,offlineStorageEnabled:document.getElementById('fOffline').checked,shareEnabled:document.getElementById('fShare').checked,notificationsEnabled:document.getElementById('fNotifications').checked,searchEnabled:document.getElementById('fSearch').checked,darkModeEnabled:document.getElementById('fDark').checked,compactModeEnabled:document.getElementById('fCompact').checked,themeSelectionEnabled:document.getElementById('fThemePicker').checked,splashScreenEnabled:document.getElementById('fSplash').checked,exitConfirmationEnabled:document.getElementById('fExitConfirm').checked},sections:sections.slice(),network:{internalNavigationEnabled:bool('internalNav'),bridgeRateLimitPerMinute:num('rateLimit'),bridgeReplayProtectionEnabled:bool('replayProt'),mixedContentMode:val('mixedContent')},ads:{enabled:val('adsEnabled')==='true',testMode:val('adsTest')==='true',gdprEnabled:val('gdprEnabled')==='true',adUnits:{appId:val('adAppId'),bannerId:val('adBannerId'),interstitialId:val('adInterId'),appOpenId:val('adOpenId')},bannerAds:{enabled:true,position:val('bannerPos'),size:val('bannerSize'),refreshInterval:num('bannerRefresh')},interstitialAds:{enabled:true,showOnAppStart:false,showOnPageLoad:false,showInterval:num('interInterval'),maxPerSession:num('interMax')},appOpenAds:{enabled:true,showOnColdStart:val('openCold')==='true',showOnWarmStart:val('openWarm')==='true',timeout:num('openTimeout')},privacy:{consentRequired:true,debugGeography:"EEA",testDeviceIds:[]}}}}
+document.getElementById('wizardGenerate').onclick=()=>{const cfg=buildConfig();document.getElementById('jsonText').value=JSON.stringify(cfg,null,2);setStatus('Generated JSON from wizard')};
+<script>
+(function(){
+  function getEl(id){return document.getElementById(id)}
+  function setVal(id,v){const el=getEl(id); if(el) el.value = v ?? ''}
+  function setSel(id,v){const el=getEl(id); if(el) el.value = (v===undefined||v===null)? el.value : String(v)}
+  function setChk(id,flag){const el=getEl(id); if(el) el.checked = !!flag}
+  function populateWizardFromJson(cfg){
+    try{
+      setVal('websiteUrl', cfg.websiteUrl)
+      setVal('websiteName', cfg.websiteName)
+      setVal('homepageUrl', cfg.homepageUrl)
+      const origins = (cfg.security && Array.isArray(cfg.security.allowedOrigins)) ? cfg.security.allowedOrigins.join(', ') : ''
+      setVal('allowedOrigins', origins)
+      const ai = cfg.appInfo || {}
+      setVal('appName', ai.appName); setVal('appSubtitle', ai.appSubtitle); setVal('version', ai.version)
+      setVal('developer', ai.developer); setVal('supportEmail', ai.supportEmail)
+      setVal('aboutUrl', ai.aboutUrl); setVal('privacyPolicyUrl', ai.privacyPolicyUrl)
+      setVal('contactUrl', ai.contactUrl); setVal('termsOfServiceUrl', ai.termsOfServiceUrl)
+      const ui = cfg.uiStrings || {}
+      setVal('settingsTitle', ui.settingsTitle); setVal('settingsSubtitle', ui.settingsSubtitle)
+      const nav = (ui.navigationLabels||{})
+      setVal('navHome', nav.home); setVal('navSections', nav.sections); setVal('navSettings', nav.settings); setVal('navFavorites', nav.favorites)
+      const btn = (ui.buttonLabels||{})
+      setVal('btnAbout', btn.about); setVal('btnPrivacy', btn.privacy); setVal('btnContact', btn.contact)
+      setVal('loadingText', ui.loadingText); setVal('copyrightText', ui.copyrightText)
+      const f = cfg.featuresEnabled || {}
+      setChk('fSections', f.sectionsEnabled); setChk('fFavorites', f.favoritesEnabled); setChk('fOffline', f.offlineStorageEnabled)
+      setChk('fShare', f.shareEnabled); setChk('fNotifications', f.notificationsEnabled); setChk('fSearch', f.searchEnabled)
+      setChk('fDark', f.darkModeEnabled); setChk('fCompact', f.compactModeEnabled); setChk('fThemePicker', f.themeSelectionEnabled)
+      setChk('fSplash', f.splashScreenEnabled); setChk('fExitConfirm', f.exitConfirmationEnabled)
+      const net = cfg.network || {}
+      setSel('internalNav', String(!!net.internalNavigationEnabled)); setVal('rateLimit', net.bridgeRateLimitPerMinute ?? 30)
+      setSel('replayProt', String(!!net.bridgeReplayProtectionEnabled)); setSel('mixedContent', net.mixedContentMode ?? 'compatibility')
+      const sec = cfg.security || {}
+      setSel('certPin', String(!!sec.certPinningEnabled)); setSel('strictMixed', String(!!sec.strictMixedContentEnabled))
+      setSel('thirdCookies', String(!!sec.acceptThirdPartyCookies)); setSel('screenProt', String(!!sec.screenRecordingProtection))
+      setSel('allowSubdomains', String(!!sec.allowSubdomains))
+      const ads = cfg.ads || {}
+      setSel('adsEnabled', String(!!ads.enabled)); setSel('adsTest', String(!!ads.testMode)); setSel('gdprEnabled', String(!!ads.gdprEnabled))
+      const au = ads.adUnits||{}
+      setVal('adAppId', au.appId); setVal('adBannerId', au.bannerId); setVal('adInterId', au.interstitialId); setVal('adOpenId', au.appOpenId)
+      const ba = ads.bannerAds||{}
+      setSel('bannerPos', ba.position ?? 'bottom'); setSel('bannerSize', ba.size ?? 'adaptive'); setVal('bannerRefresh', ba.refreshInterval ?? 60)
+      const ia = ads.interstitialAds||{}
+      setVal('interInterval', ia.showInterval ?? 300); setVal('interMax', ia.maxPerSession ?? 5)
+      const ao = ads.appOpenAds||{}
+      setSel('openCold', String(!!ao.showOnColdStart)); setSel('openWarm', String(!!ao.showOnWarmStart)); setVal('openTimeout', ao.timeout ?? 4000)
+      // sections
+      if (Array.isArray(cfg.sections)) {
+        while (sections.length) sections.pop()
+        cfg.sections.forEach(s => sections.push({
+          name: s.name || '',
+          url: s.url || '',
+          icon: s.icon || '',
+          color: s.color || '',
+          enabled: !!s.enabled
+        }))
+        renderSections()
+      }
+      setStatus('Wizard populated from JSON')
+    }catch(e){ setStatus('Populate failed: '+e.message) }
+  }
+  function requiredList(cfg){
+    const missing=[]
+    function need(path,cond=true){ if(!cond){ missing.push(path) } }
+    need('websiteUrl', !!cfg.websiteUrl)
+    need('websiteName', !!cfg.websiteName)
+    need('homepageUrl', !!cfg.homepageUrl)
+    const originsOk = cfg.security && Array.isArray(cfg.security.allowedOrigins) && cfg.security.allowedOrigins.length>0
+    need('security.allowedOrigins[0]', originsOk)
+    const ai = cfg.appInfo||{}
+    need('appInfo.appName', !!ai.appName)
+    need('appInfo.version', !!ai.version)
+    need('appInfo.developer', !!ai.developer)
+    const au = (cfg.ads && cfg.ads.adUnits) || {}
+    need('ads.adUnits.appId', !!au.appId)
+    need('ads.adUnits.bannerId', !!au.bannerId)
+    need('ads.adUnits.interstitialId', !!au.interstitialId)
+    need('ads.adUnits.appOpenId', !!au.appOpenId)
+    const secsOk = Array.isArray(cfg.sections) && cfg.sections.length>=1
+    need('sections[0].name/url', secsOk)
+    return missing
+  }
+  function parseCurrent(){
+    try{ return JSON.parse(getEl('jsonText').value) } catch(e){ return null }
+  }
+  const loadBtn = getEl('loadBtn'); if (loadBtn) {
+    const orig = loadBtn.onclick
+    loadBtn.onclick = async () => {
+      await orig?.call(loadBtn)
+      const obj = parseCurrent(); if (obj) populateWizardFromJson(obj)
+    }
+  }
+  const fileInput = getEl('fileInput'); if (fileInput) {
+    const origChange = fileInput.onchange
+    fileInput.onchange = async (e) => {
+      await origChange?.call(fileInput, e)
+      const obj = parseCurrent(); if (obj) populateWizardFromJson(obj)
+    }
+  }
+  ;['publishBtn','putPresignedBtn','postEndpointBtn','downloadBtn'].forEach(id=>{
+    const el = getEl(id); if (!el) return
+    const orig = el.onclick
+    el.onclick = async ()=> {
+      const obj = parseCurrent()
+      if (!obj) { setStatus('Invalid JSON. Fix before proceeding.'); return }
+      const miss = requiredList(obj)
+      if (miss.length>0) { setStatus('Missing required fields: '+miss.join(', ')); return }
+      await orig?.call(el)
+    }
+  })
+  const wizardGenerate = getEl('wizardGenerate'); if (wizardGenerate) {
+    const orig = wizardGenerate.onclick
+    wizardGenerate.onclick = ()=> {
+      orig?.call(wizardGenerate)
+      const obj = parseCurrent()
+      if (obj) {
+        const miss = requiredList(obj)
+        if (miss.length>0) setStatus('Generated JSON. Missing: '+miss.join(', '))
+      }
+    }
+  }
+  const syncWizardBtn = getEl('syncWizardBtn'); if (syncWizardBtn) {
+    syncWizardBtn.onclick = ()=>{
+      const obj = parseCurrent()
+      if (!obj) { setStatus('Invalid JSON. Fix before syncing.'); return }
+      populateWizardFromJson(obj)
+      const miss = requiredList(obj)
+      if (miss.length>0) setStatus('Missing required fields: '+miss.join(', '))
+      else setStatus('Wizard synced from JSON')
+    }
+  }
+})();
+</script></body></html>
