@@ -1,10 +1,45 @@
 {
-  "// ===== Basic Website Settings =====": "Control the main website and links",
   "websiteUrl": "https://sorymohajer.github.io",
   "websiteName": "WebControl X",
   "homepageUrl": "https://sorymohajer.github.io/WebView-Pro/",
-
-  "// ===== Enable/Disable Main Features =====": "Control the features available to users",
+  "security": {
+    "allowedOrigins": [
+      "https://sorymohajer.github.io"
+    ],
+    "allowSubdomains": true,
+    "certPinningEnabled": true,
+    "strictMixedContentEnabled": true,
+    "acceptThirdPartyCookies": false,
+    "screenRecordingProtection": false
+  },
+  "appInfo": {
+    "appName": "WebControl X",
+    "appSubtitle": "Advanced Code Editor",
+    "version": "1.0.0",
+    "developer": "Sory Mohajer",
+    "supportEmail": "support@WebControlX.com",
+    "aboutUrl": "https://sorymohajer.github.io/WebView-Pro/about.html",
+    "privacyPolicyUrl": "https://sorymohajer.github.io/WebView-Pro/privacy.html",
+    "contactUrl": "https://sorymohajer.github.io/WebView-Pro/support.html",
+    "termsOfServiceUrl": "https://sorymohajer.github.io/WebView-Pro/terms.html"
+  },
+  "uiStrings": {
+    "settingsTitle": "Settings",
+    "settingsSubtitle": "Customize your experience",
+    "navigationLabels": {
+      "home": "Home",
+      "sections": "Sections",
+      "settings": "Settings",
+      "favorites": "Favorites"
+    },
+    "buttonLabels": {
+      "about": "About the App",
+      "privacy": "Privacy Policy",
+      "contact": "Contact Us"
+    },
+    "loadingText": "Loading...",
+    "copyrightText": "© 2026"
+  },
   "featuresEnabled": {
     "sectionsEnabled": true,
     "favoritesEnabled": true,
@@ -15,22 +50,16 @@
     "darkModeEnabled": true,
     "compactModeEnabled": true,
     "themeSelectionEnabled": true,
-    "aboutPageEnabled": true,
-    "contactPageEnabled": true,
-    "privacyPageEnabled": true,
-    "settingsEnabled": true,
     "splashScreenEnabled": true,
     "exitConfirmationEnabled": true
   },
-
-  "// ===== Sections Settings =====": "Customize the sections shown in the app",
   "sections": [
     {
       "name": "News",
       "url": "/search/label/الأخبار",
       "icon": "article",
       "color": "#2196F3",
-      "enabled": true
+      "enabled": false
     },
     {
       "name": "Security Programs",
@@ -58,7 +87,7 @@
       "url": "/search/label/أندرويد",
       "icon": "phone_android",
       "color": "#00BCD4",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Apps",
@@ -68,82 +97,12 @@
       "enabled": false
     }
   ],
-
-  "// ===== Offline Storage Settings =====": "Control the offline storage feature",
-  "offlineStorage": {
-    "autoSaveEnabled": true,
-    "maxStorageMB": 100,
-    "autoEvictEnabled": true,
-    "warn90PercentEnabled": true,
-    "compressionEnabled": true
-  },
-
-  "// ===== Notifications Settings =====": "Control types of notifications",
-  "notifications": {
-    "localNotificationsEnabled": true,
-    "fcmEnabled": true,
-    "newsSubscriptionEnabled": true,
-    "storageWarningsEnabled": true
-  },
-
-  "// ===== Themes Settings =====": "Customize available themes",
-  "themes": {
-    "defaultTheme": "CodeEditorDarkModern",
-    "availableThemes": [
-      {
-        "key": "CodeEditorDarkModern",
-        "name": "Dark Code Editor",
-        "enabled": true
-      },
-      {
-        "key": "GitHubLight",
-        "name": "GitHub Light",
-        "enabled": false
-      },
-      {
-        "key": "GitHubDark",
-        "name": "GitHub Dark",
-        "enabled": true
-      },
-      {
-        "key": "HighContrast",
-        "name": "High Contrast",
-        "enabled": true
-      }
-    ]
-  },
-
-  "// ===== Security Settings =====": "Protection and security settings",
-  "security": {
-    "allowedOrigins": ["https://sorymohajer.github.io"],
-    "allowSubdomains": true,
-    "certPinningEnabled": true,
-    "strictMixedContentEnabled": true,
-    "acceptThirdPartyCookies": false,
-    "screenRecordingProtection": false
-  },
-
-  "// ===== Network Settings =====": "Control network behavior",
   "network": {
+    "internalNavigationEnabled": true,
     "bridgeRateLimitPerMinute": 30,
     "bridgeReplayProtectionEnabled": true,
-    "bridgeRequestLoginEnabled": false,
-    "bridgeCopyToClipboardEnabled": true,
-    "mixedContentMode": "never",
-    "internalNavigationEnabled": true,
-    "externalOpenEnabled": true
+    "mixedContentMode": ""
   },
-
-  "// ===== UI Settings =====": "Customize the user interface",
-  "ui": {
-    "skeletonEnabled": true,
-    "animationsEnabled": true,
-    "hapticFeedbackEnabled": true,
-    "swipeRefreshEnabled": true,
-    "pullToRefreshEnabled": true
-  },
-
-  "// ===== AdMob Settings =====": "Control all advertisement features",
   "ads": {
     "enabled": true,
     "testMode": true,
@@ -162,8 +121,8 @@
     },
     "interstitialAds": {
       "enabled": true,
-      "showOnAppStart": true,
-      "showOnPageLoad": true,
+      "showOnAppStart": false,
+      "showOnPageLoad": false,
       "showInterval": 300,
       "maxPerSession": 5
     },
@@ -179,36 +138,12 @@
       "testDeviceIds": []
     }
   },
-
-  "// ===== App Info =====": "Information about the app",
-  "appInfo": {
-    "appName": "WebControl X",
-    "appSubtitle": "Advanced Code Editor",
-    "version": "1.0.0",
-    "developer": "Sory Mohajer",
-    "supportEmail": "support@WebControlX.com",
-    "aboutUrl": "https://sorymohajer.github.io/WebView-Pro/about.html",
-    "privacyPolicyUrl": "https://sorymohajer.github.io/WebView-Pro/privacy.html",
-    "contactUrl": "https://sorymohajer.github.io/WebView-Pro/support.html",
-    "termsOfServiceUrl": "https://sorymohajer.github.io/WebView-Pro/terms.html"
-  },
-
-  "// ===== UI Strings =====": "Customize text displayed in the app",
-  "uiStrings": {
-    "settingsTitle": "Settings",
-    "settingsSubtitle": "Customize your experience",
-    "navigationLabels": {
-      "home": "Home",
-      "sections": "Sections",
-      "settings": "Settings",
-      "favorites": "Favorites"
-    },
-    "buttonLabels": {
-      "about": "About the App",
-      "privacy": "Privacy Policy",
-      "contact": "Contact Us"
-    },
-    "loadingText": "Loading...",
-    "copyrightText": "© 2026"
+  "siteOverrides": {
+    "hideHeader": true,
+    "hideFooter": true,
+    "hideSidebar": true,
+    "hideIds": [],
+    "hideClasses": [],
+    "hideSelectors": []
   }
 }
