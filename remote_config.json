@@ -8,8 +8,8 @@
     ],
     "allowSubdomains": true,
     "certPinningEnabled": true,
-    "strictMixedContentEnabled": true,
-    "acceptThirdPartyCookies": false,
+    "strictMixedContentEnabled": false,
+    "acceptThirdPartyCookies": true,
     "screenRecordingProtection": false
   },
   "appInfo": {
@@ -41,17 +41,17 @@
     "copyrightText": "© 2026xxx"
   },
   "featuresEnabled": {
-    "sectionsEnabled": true,
-    "favoritesEnabled": true,
-    "offlineStorageEnabled": true,
-    "shareEnabled": true,
-    "notificationsEnabled": true,
-    "searchEnabled": true,
-    "darkModeEnabled": true,
-    "compactModeEnabled": true,
-    "themeSelectionEnabled": true,
-    "splashScreenEnabled": true,
-    "exitConfirmationEnabled": true
+    "sectionsEnabled": false,
+    "favoritesEnabled": false,
+    "offlineStorageEnabled": false,
+    "shareEnabled": false,
+    "notificationsEnabled": false,
+    "searchEnabled": false,
+    "darkModeEnabled": false,
+    "compactModeEnabled": false,
+    "themeSelectionEnabled": false,
+    "splashScreenEnabled": false,
+    "exitConfirmationEnabled": false
   },
   "sections": [
     {
@@ -98,13 +98,13 @@
     }
   ],
   "network": {
-    "internalNavigationEnabled": true,
+    "internalNavigationEnabled": false,
     "bridgeRateLimitPerMinute": 30,
     "bridgeReplayProtectionEnabled": true,
     "mixedContentMode": ""
   },
   "ads": {
-    "enabled": false,
+    "enabled": true,
     "testMode": true,
     "gdprEnabled": true,
     "adUnits": {
@@ -115,8 +115,8 @@
     },
     "bannerAds": {
       "enabled": true,
-      "position": "bottom",
-      "size": "adaptive",
+      "position": "top",
+      "size": "standard",
       "refreshInterval": 60
     },
     "interstitialAds": {
