@@ -35,23 +35,28 @@
     "buttonLabels": {
       "about": "About the App",
       "privacy": "Privacy Policy",
-      "contact": "Contact Us"
+      "contact": "Contact Us",
+      "terms": "شروط الخدمة"
     },
     "loadingText": "Loading...",
     "copyrightText": "© 2026"
   },
   "featuresEnabled": {
-    "sectionsEnabled": true,
-    "favoritesEnabled": true,
-    "offlineStorageEnabled": true,
-    "shareEnabled": true,
-    "notificationsEnabled": true,
-    "searchEnabled": true,
-    "darkModeEnabled": true,
-    "compactModeEnabled": true,
-    "themeSelectionEnabled": true,
-    "splashScreenEnabled": true,
-    "exitConfirmationEnabled": true
+    "sectionsEnabled": false,
+    "favoritesEnabled": false,
+    "offlineStorageEnabled": false,
+    "shareEnabled": false,
+    "notificationsEnabled": false,
+    "searchEnabled": false,
+    "darkModeEnabled": false,
+    "compactModeEnabled": false,
+    "themeSelectionEnabled": false,
+    "splashScreenEnabled": false,
+    "exitConfirmationEnabled": false,
+    "aboutPageEnabled": false,
+    "privacyPageEnabled": false,
+    "contactPageEnabled": false,
+    "termsPageEnabled": false
   },
   "sections": [
     {
@@ -101,7 +106,7 @@
     "internalNavigationEnabled": true,
     "bridgeRateLimitPerMinute": 30,
     "bridgeReplayProtectionEnabled": true,
-    "mixedContentMode": ""
+    "mixedContentMode": "compatibility"
   },
   "ads": {
     "enabled": true,
