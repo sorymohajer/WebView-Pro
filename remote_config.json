@@ -1,10 +1,10 @@
 {
-  "websiteUrl": "https://sorymohajer.github.io",
-  "websiteName": "xxxWebControl X",
-  "homepageUrl": "https://sorymohajer.github.io/WebView-Pro/",
+  "websiteUrl": "https://alsaker86.blogspot.com",
+  "websiteName": "EXE and APK",
+  "homepageUrl": "https://alsaker86.blogspot.com",
   "security": {
     "allowedOrigins": [
-      "https://sorymohajer.github.io"
+      "https://alsaker86.blogspot.com"
     ],
     "allowSubdomains": true,
     "certPinningEnabled": true,
@@ -13,7 +13,7 @@
     "screenRecordingProtection": false
   },
   "appInfo": {
-    "appName": "WebControl Xxxx",
+    "appName": "EXE and APK",
     "appSubtitle": "Advanced Code Editor",
     "version": "1.0.0",
     "developer": "Sory Mohajer",
