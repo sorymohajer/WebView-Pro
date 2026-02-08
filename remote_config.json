@@ -150,8 +150,8 @@
   },
   "siteOverrides": {
     "hideHeader": false,
-    "hideFooter": true,
-    "hideSidebar": true,
+    "hideFooter": false,
+    "hideSidebar": false,
     "hideIds": [],
     "hideClasses": [],
     "hideSelectors": [],
