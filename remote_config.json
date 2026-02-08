@@ -1,6 +1,6 @@
 {
   "websiteUrl": "https://sorymohajer.github.io",
-  "websiteName": "WebControl X",
+  "websiteName": "xxxWebControl X",
   "homepageUrl": "https://sorymohajer.github.io/WebView-Pro/",
   "security": {
     "allowedOrigins": [
@@ -13,32 +13,32 @@
     "screenRecordingProtection": false
   },
   "appInfo": {
-    "appName": "WebControl X",
+    "appName": "WebControl Xxxx",
     "appSubtitle": "Advanced Code Editor",
     "version": "1.0.0",
     "developer": "Sory Mohajer",
     "supportEmail": "support@WebControlX.com",
-    "aboutUrl": "https://sorymohajer.github.io/WebView-Pro/about.html",
-    "privacyPolicyUrl": "https://sorymohajer.github.io/WebView-Pro/privacy.html",
-    "contactUrl": "https://sorymohajer.github.io/WebView-Pro/support.html",
+    "aboutUrl": "https://sorymohajer.github.io/WebView-Pro/xxabout.html",
+    "privacyPolicyUrl": "https://sorymohajer.github.io/xxWebView-Pro/privacy.html",
+    "contactUrl": "https://sorymohajer.github.io/xxWebView-Pro/support.html",
     "termsOfServiceUrl": "https://sorymohajer.github.io/WebView-Pro/terms.html"
   },
   "uiStrings": {
-    "settingsTitle": "Settings",
-    "settingsSubtitle": "Customize your experience",
+    "settingsTitle": "Settingsxxx",
+    "settingsSubtitle": "Customize your experiencexxx",
     "navigationLabels": {
-      "home": "Home",
-      "sections": "Sections",
-      "settings": "Settings",
-      "favorites": "Favorites"
+      "home": "Homexx",
+      "sections": "Sectionsxxx",
+      "settings": "Settingsxxx",
+      "favorites": "Favoritesxx"
     },
     "buttonLabels": {
-      "about": "About the App",
-      "privacy": "Privacy Policy",
-      "contact": "Contact Us"
+      "about": "About the Appxx",
+      "privacy": "Privacy Policyxx",
+      "contact": "Contact Usxx"
     },
-    "loadingText": "Loading...",
-    "copyrightText": "© 2026"
+    "loadingText": "Loading...xxx",
+    "copyrightText": "© 2026xxx"
   },
   "featuresEnabled": {
     "sectionsEnabled": true,
@@ -104,7 +104,7 @@
     "mixedContentMode": ""
   },
   "ads": {
-    "enabled": true,
+    "enabled": false,
     "testMode": true,
     "gdprEnabled": true,
     "adUnits": {
