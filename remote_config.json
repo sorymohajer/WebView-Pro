@@ -1,7 +1,7 @@
 {
   "websiteUrl": "https://alsaker86.blogspot.com",
   "websiteName": "EXE and APK",
-  "homepageUrl": "https://alsaker86.blogspot.com",
+  "homepageUrl": "https://alsaker86.blogspot.com/",
   "security": {
     "allowedOrigins": [
       "https://alsaker86.blogspot.com"
@@ -10,7 +10,7 @@
     "certPinningEnabled": true,
     "strictMixedContentEnabled": true,
     "acceptThirdPartyCookies": false,
-    "screenRecordingProtection": true
+    "screenRecordingProtection": false
   },
   "appInfo": {
     "appName": "EXE and APK",
@@ -24,34 +24,34 @@
     "termsOfServiceUrl": "https://sorymohajer.github.io/WebView-Pro/terms.html"
   },
   "uiStrings": {
-    "settingsTitle": "Settingsxxx",
-    "settingsSubtitle": "Customize your experiencexxx",
+    "settingsTitle": "Settings",
+    "settingsSubtitle": "Customize your experience",
     "navigationLabels": {
-      "home": "Homexx",
-      "sections": "Sectionsxxx",
-      "settings": "Settingsxxx",
-      "favorites": "Favoritesxx"
+      "home": "Home",
+      "sections": "Sections",
+      "settings": "Settings",
+      "favorites": "Favorites"
     },
     "buttonLabels": {
-      "about": "About the Appxx",
-      "privacy": "Privacy Policyxx",
-      "contact": "Contact Usxx"
+      "about": "About the App",
+      "privacy": "Privacy Policy",
+      "contact": "Contact Us"
     },
-    "loadingText": "Loading...xxx",
-    "copyrightText": "© 2026xxx"
+    "loadingText": "Loading...",
+    "copyrightText": "© 2026"
   },
   "featuresEnabled": {
     "sectionsEnabled": true,
-    "favoritesEnabled": false,
+    "favoritesEnabled": true,
     "offlineStorageEnabled": true,
-    "shareEnabled": false,
-    "notificationsEnabled": false,
-    "searchEnabled": false,
-    "darkModeEnabled": false,
-    "compactModeEnabled": false,
-    "themeSelectionEnabled": false,
-    "splashScreenEnabled": false,
-    "exitConfirmationEnabled": false
+    "shareEnabled": true,
+    "notificationsEnabled": true,
+    "searchEnabled": true,
+    "darkModeEnabled": true,
+    "compactModeEnabled": true,
+    "themeSelectionEnabled": true,
+    "splashScreenEnabled": true,
+    "exitConfirmationEnabled": true
   },
   "sections": [
     {
@@ -59,7 +59,7 @@
       "url": "/search/label/الأخبار",
       "icon": "article",
       "color": "#2196F3",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Security Programs",
@@ -87,7 +87,7 @@
       "url": "/search/label/أندرويد",
       "icon": "phone_android",
       "color": "#00BCD4",
-      "enabled": true
+      "enabled": false
     },
     {
       "name": "Apps",
@@ -101,7 +101,7 @@
     "internalNavigationEnabled": true,
     "bridgeRateLimitPerMinute": 30,
     "bridgeReplayProtectionEnabled": true,
-    "mixedContentMode": "compatibility"
+    "mixedContentMode": ""
   },
   "ads": {
     "enabled": true,
@@ -115,8 +115,8 @@
     },
     "bannerAds": {
       "enabled": true,
-      "position": "top",
-      "size": "standard",
+      "position": "bottom",
+      "size": "adaptive",
       "refreshInterval": 60
     },
     "interstitialAds": {
