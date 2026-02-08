@@ -98,6 +98,7 @@
       <div class="field"><label>زر عن التطبيق</label><input id="btnAbout" value="عن التطبيق"></div>
       <div class="field"><label>زر سياسة الخصوصية</label><input id="btnPrivacy" value="سياسة الخصوصية"></div>
       <div class="field"><label>زر تواصل معنا</label><input id="btnContact" value="تواصل معنا"></div>
+      <div class="field"><label>زر شروط الخدمة</label><input id="btnTerms" value="شروط الخدمة"></div>
     </div>
 
     <div class="section">
@@ -114,6 +115,10 @@
         <label class="pill"><input type="checkbox" id="fThemePicker"> اختيار الثيم</label>
         <label class="pill"><input type="checkbox" id="fSplash" checked> شاشة البداية</label>
         <label class="pill"><input type="checkbox" id="fExitConfirm" checked> تأكيد الخروج</label>
+        <label class="pill"><input type="checkbox" id="fAbout" checked> زر عن التطبيق</label>
+        <label class="pill"><input type="checkbox" id="fPrivacy" checked> زر الخصوصية</label>
+        <label class="pill"><input type="checkbox" id="fContact" checked> زر التواصل</label>
+        <label class="pill"><input type="checkbox" id="fTerms" checked> زر الشروط</label>
       </div>
     </div>
 
@@ -180,6 +185,19 @@
 
     <div class="section actions">
       <button class="btn success" id="wizardGenerate">إنشاء JSON من الإعدادات</button>
+    </div>
+  </div>
+
+  <!-- 2.1 تجاوزات الموقع (إخفاء عناصر في الويب) -->
+  <div class="card">
+    <h2>تجاوزات الموقع (DOM Overrides)</h2>
+    <div class="section grid">
+      <div class="field"><label>إخفاء الهيدر</label><select id="hideHeader"><option value="false">لا</option><option value="true">نعم</option></select></div>
+      <div class="field"><label>إخفاء الفوتر</label><select id="hideFooter"><option value="false">لا</option><option value="true">نعم</option></select></div>
+      <div class="field"><label>إخفاء الشريط الجانبي</label><select id="hideSidebar"><option value="false">لا</option><option value="true">نعم</option></select></div>
+      <div class="field"><label>قائمة IDs (مفصولة بفواصل)</label><input id="hideIds" placeholder="header, footer, sidebar"></div>
+      <div class="field"><label>قائمة Classes (مفصولة بفواصل)</label><input id="hideClasses" placeholder="ads, banner, widget"></div>
+      <div class="field"><label>قائمة Selectors (CSS مفصولة بفواصل)</label><input id="hideSelectors" placeholder=".adsbygoogle, #promo, aside.right"></div>
     </div>
   </div>
 
@@ -294,7 +312,8 @@ function buildConfig() {
       buttonLabels: {
         about: val('btnAbout'),
         privacy: val('btnPrivacy'),
-        contact: val('btnContact')
+        contact: val('btnContact'),
+        terms: val('btnTerms')
       },
       loadingText: val('loadingText'),
       copyrightText: val('copyrightText')
@@ -310,7 +329,11 @@ function buildConfig() {
       compactModeEnabled: checked('fCompact'),
       themeSelectionEnabled: checked('fThemePicker'),
       splashScreenEnabled: checked('fSplash'),
-      exitConfirmationEnabled: checked('fExitConfirm')
+      exitConfirmationEnabled: checked('fExitConfirm'),
+      aboutPageEnabled: checked('fAbout'),
+      privacyPageEnabled: checked('fPrivacy'),
+      contactPageEnabled: checked('fContact'),
+      termsPageEnabled: checked('fTerms')
     },
     sections: sections.slice(),
     network: {
@@ -353,6 +376,14 @@ function buildConfig() {
         debugGeography: "EEA",
         testDeviceIds: []
       }
+    },
+    siteOverrides: {
+      hideHeader: bool('hideHeader'),
+      hideFooter: bool('hideFooter'),
+      hideSidebar: bool('hideSidebar'),
+      hideIds: (val('hideIds') || '').split(',').map(x=>x.trim()).filter(Boolean),
+      hideClasses: (val('hideClasses') || '').split(',').map(x=>x.trim()).filter(Boolean),
+      hideSelectors: (val('hideSelectors') || '').split(',').map(x=>x.trim()).filter(Boolean)
     }
   };
 }
@@ -472,6 +503,7 @@ function populateWizard(cfg) {
     document.getElementById('btnAbout').value    = btn.about    || 'عن التطبيق';
     document.getElementById('btnPrivacy').value  = btn.privacy  || 'سياسة الخصوصية';
     document.getElementById('btnContact').value  = btn.contact  || 'تواصل معنا';
+    document.getElementById('btnTerms').value    = btn.terms    || 'شروط الخدمة';
 
     // Features
     const f = cfg.featuresEnabled || {};
@@ -486,6 +518,10 @@ function populateWizard(cfg) {
     document.getElementById('fThemePicker').checked  = !!f.themeSelectionEnabled;
     document.getElementById('fSplash').checked       = !!f.splashScreenEnabled;
     document.getElementById('fExitConfirm').checked  = !!f.exitConfirmationEnabled;
+    document.getElementById('fAbout').checked        = !!f.aboutPageEnabled;
+    document.getElementById('fPrivacy').checked      = !!f.privacyPageEnabled;
+    document.getElementById('fContact').checked      = !!f.contactPageEnabled;
+    document.getElementById('fTerms').checked        = !!f.termsPageEnabled;
 
     // Network & Security
     const net = cfg.network || {};
@@ -541,6 +577,15 @@ function populateWizard(cfg) {
       });
     }
     renderSections();
+
+    // Site Overrides
+    const so = cfg.siteOverrides || {};
+    document.getElementById('hideHeader').value = so.hideHeader ? 'true' : 'false';
+    document.getElementById('hideFooter').value = so.hideFooter ? 'true' : 'false';
+    document.getElementById('hideSidebar').value = so.hideSidebar ? 'true' : 'false';
+    document.getElementById('hideIds').value = (so.hideIds || []).join(', ');
+    document.getElementById('hideClasses').value = (so.hideClasses || []).join(', ');
+    document.getElementById('hideSelectors').value = (so.hideSelectors || []).join(', ');
 
     setStatus('تم ملء الواجهة من الـ JSON بنجاح');
   } catch (e) {
