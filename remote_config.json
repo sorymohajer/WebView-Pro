@@ -8,9 +8,9 @@
     ],
     "allowSubdomains": true,
     "certPinningEnabled": true,
-    "strictMixedContentEnabled": false,
-    "acceptThirdPartyCookies": true,
-    "screenRecordingProtection": false
+    "strictMixedContentEnabled": true,
+    "acceptThirdPartyCookies": false,
+    "screenRecordingProtection": true
   },
   "appInfo": {
     "appName": "EXE and APK",
@@ -18,9 +18,9 @@
     "version": "1.0.0",
     "developer": "Sory Mohajer",
     "supportEmail": "support@WebControlX.com",
-    "aboutUrl": "https://sorymohajer.github.io/WebView-Pro/xxabout.html",
-    "privacyPolicyUrl": "https://sorymohajer.github.io/xxWebView-Pro/privacy.html",
-    "contactUrl": "https://sorymohajer.github.io/xxWebView-Pro/support.html",
+    "aboutUrl": "https://alsaker86.blogspot.com/p/about-us.html",
+    "privacyPolicyUrl": "https://alsaker86.blogspot.com/p/privacy-policy.html",
+    "contactUrl": "https://alsaker86.blogspot.com/p/contact-us.html",
     "termsOfServiceUrl": "https://sorymohajer.github.io/WebView-Pro/terms.html"
   },
   "uiStrings": {
@@ -41,9 +41,9 @@
     "copyrightText": "© 2026xxx"
   },
   "featuresEnabled": {
-    "sectionsEnabled": false,
+    "sectionsEnabled": true,
     "favoritesEnabled": false,
-    "offlineStorageEnabled": false,
+    "offlineStorageEnabled": true,
     "shareEnabled": false,
     "notificationsEnabled": false,
     "searchEnabled": false,
@@ -98,10 +98,10 @@
     }
   ],
   "network": {
-    "internalNavigationEnabled": false,
+    "internalNavigationEnabled": true,
     "bridgeRateLimitPerMinute": 30,
     "bridgeReplayProtectionEnabled": true,
-    "mixedContentMode": ""
+    "mixedContentMode": "compatibility"
   },
   "ads": {
     "enabled": true,
