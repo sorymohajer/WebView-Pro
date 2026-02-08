@@ -119,6 +119,12 @@
         <label class="pill"><input type="checkbox" id="fPrivacy" checked> زر الخصوصية</label>
         <label class="pill"><input type="checkbox" id="fContact" checked> زر التواصل</label>
         <label class="pill"><input type="checkbox" id="fTerms" checked> زر الشروط</label>
+        <label class="pill"><input type="checkbox" id="fTopBar" checked> إظهار الشريط العلوي</label>
+        <label class="pill"><input type="checkbox" id="fBottomBar" checked> إظهار القائمة السفلية</label>
+        <label class="pill"><input type="checkbox" id="fReloadBtn" checked> زر إعادة التحميل</label>
+        <label class="pill"><input type="checkbox" id="fReader" checked> عناصر القراءة/تكبير الخط</label>
+        <label class="pill"><input type="checkbox" id="fLoadHud" checked> نافذة زمن التحميل</label>
+        <label class="pill"><input type="checkbox" id="fBlockAds"> حجب الإعلانات داخل الموقع</label>
       </div>
     </div>
 
@@ -333,7 +339,12 @@ function buildConfig() {
       aboutPageEnabled: checked('fAbout'),
       privacyPageEnabled: checked('fPrivacy'),
       contactPageEnabled: checked('fContact'),
-      termsPageEnabled: checked('fTerms')
+      termsPageEnabled: checked('fTerms'),
+      topBarEnabled: checked('fTopBar'),
+      bottomBarEnabled: checked('fBottomBar'),
+      reloadButtonEnabled: checked('fReloadBtn'),
+      readerControlsEnabled: checked('fReader'),
+      loadTimeHudEnabled: checked('fLoadHud')
     },
     sections: sections.slice(),
     network: {
@@ -383,7 +394,8 @@ function buildConfig() {
       hideSidebar: bool('hideSidebar'),
       hideIds: (val('hideIds') || '').split(',').map(x=>x.trim()).filter(Boolean),
       hideClasses: (val('hideClasses') || '').split(',').map(x=>x.trim()).filter(Boolean),
-      hideSelectors: (val('hideSelectors') || '').split(',').map(x=>x.trim()).filter(Boolean)
+      hideSelectors: (val('hideSelectors') || '').split(',').map(x=>x.trim()).filter(Boolean),
+      blockAds: checked('fBlockAds')
     }
   };
 }
@@ -522,6 +534,11 @@ function populateWizard(cfg) {
     document.getElementById('fPrivacy').checked      = !!f.privacyPageEnabled;
     document.getElementById('fContact').checked      = !!f.contactPageEnabled;
     document.getElementById('fTerms').checked        = !!f.termsPageEnabled;
+    document.getElementById('fTopBar').checked       = f.topBarEnabled !== false;
+    document.getElementById('fBottomBar').checked    = f.bottomBarEnabled !== false;
+    document.getElementById('fReloadBtn').checked    = f.reloadButtonEnabled !== false;
+    document.getElementById('fReader').checked       = f.readerControlsEnabled !== false;
+    document.getElementById('fLoadHud').checked      = f.loadTimeHudEnabled !== false;
 
     // Network & Security
     const net = cfg.network || {};
@@ -586,6 +603,7 @@ function populateWizard(cfg) {
     document.getElementById('hideIds').value = (so.hideIds || []).join(', ');
     document.getElementById('hideClasses').value = (so.hideClasses || []).join(', ');
     document.getElementById('hideSelectors').value = (so.hideSelectors || []).join(', ');
+    document.getElementById('fBlockAds').checked = !!so.blockAds;
 
     setStatus('تم ملء الواجهة من الـ JSON بنجاح');
   } catch (e) {
