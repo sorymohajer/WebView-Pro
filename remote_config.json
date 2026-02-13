@@ -149,9 +149,9 @@
     }
   },
   "siteOverrides": {
-    "hideHeader": true,
-    "hideFooter": false,
-    "hideSidebar": false,
+    "hideHeader": false,
+    "hideFooter": true,
+    "hideSidebar": true,
     "hideIds": [],
     "hideClasses": [],
     "hideSelectors": [],
