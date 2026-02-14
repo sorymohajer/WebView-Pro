@@ -1,10 +1,10 @@
 {
-  "websiteUrl": "https://alsaker86.blogspot.com",
+  "websiteUrl": "https://popcorn-stream.li/",
   "websiteName": "EXE and APK",
-  "homepageUrl": "https://alsaker86.blogspot.com/",
+  "homepageUrl": "https://popcorn-stream.li/",
   "security": {
     "allowedOrigins": [
-      "https://alsaker86.blogspot.com"
+      "https://popcorn-stream.li/"
     ],
     "allowSubdomains": true,
     "certPinningEnabled": true,
@@ -114,7 +114,7 @@
     "mixedContentMode": "compatibility"
   },
   "ads": {
-    "enabled": true,
+    "enabled": false,
     "testMode": true,
     "gdprEnabled": true,
     "adUnits": {
@@ -125,7 +125,7 @@
     },
     "bannerAds": {
       "enabled": true,
-      "position": "top",
+      "position": "bottom",
       "size": "adaptive",
       "refreshInterval": 60
     },
@@ -150,11 +150,11 @@
   },
   "siteOverrides": {
     "hideHeader": false,
-    "hideFooter": true,
-    "hideSidebar": true,
+    "hideFooter": false,
+    "hideSidebar": false,
     "hideIds": [],
     "hideClasses": [],
     "hideSelectors": [],
-    "blockAds": false
+    "blockAds": true
   }
 }
