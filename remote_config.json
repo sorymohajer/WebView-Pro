@@ -1,10 +1,10 @@
 {
-  "websiteUrl": "https://popcorn-stream.li/",
+  "websiteUrl": "https://softwares-webcom.blogspot.com/",
   "websiteName": "EXE and APK",
-  "homepageUrl": "https://popcorn-stream.li/",
+  "homepageUrl": "https://softwares-webcom.blogspot.com/",
   "security": {
     "allowedOrigins": [
-      "https://popcorn-stream.li/"
+      "https://softwares-webcom.blogspot.com/"
     ],
     "allowSubdomains": true,
     "certPinningEnabled": true,
