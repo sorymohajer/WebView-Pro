@@ -10,7 +10,7 @@
     "certPinningEnabled": true,
     "strictMixedContentEnabled": true,
     "acceptThirdPartyCookies": false,
-    "screenRecordingProtection": true
+    "screenRecordingProtection": false
   },
   "appInfo": {
     "appName": "EXE and APK",
